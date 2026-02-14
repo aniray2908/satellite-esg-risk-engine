@@ -84,6 +84,8 @@ Conceptually, NDVI reduces to:
 - One arithmetic operation  
 - One vegetation health map  
 
+NDVI computation is fundamentally element-wise matrix arithmetic, reinforcing that the computational complexity lies in orchestration rather than mathematics.
+
 ---
 
 ## 4. Practical Validation via Sentinel-2
@@ -96,6 +98,7 @@ Using Google Earth Engine:
 - NDVI layer was visually compared with true color imagery.  
 
 Vegetation regions in RGB imagery aligned strongly with high NDVI values.
+Spectral output was validated against true-color imagery to confirm vegetation alignment prior to temporal experimentation.
 
 This confirmed spectral-to-physical correspondence.
 
@@ -115,7 +118,8 @@ NDVI change can result from:
 
 A single NDVI drop does not imply degradation.
 
-Sustained decline across seasonally controlled comparisons provides stronger evidence.
+Sustained decline across seasonally controlled comparisons provides stronger evidence. 
+Initial instinct linked NDVI decline directly to degradation; further reasoning emphasized the need to separate seasonal variation from structural environmental change.
 
 This reinforces the importance of:
 
