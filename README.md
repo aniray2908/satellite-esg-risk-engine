@@ -48,6 +48,17 @@ The system is being built incrementally, with emphasis on conceptual clarity, re
 
 ---
 
+## Project Status
+
+Current Phase: Foundational Exploration
+
+- NDVI computation validated
+- Visual spectral alignment confirmed
+- Temporal variation observed
+- Spatial buffering and quantitative aggregation next
+
+---
+
 ## Repository Structure
 
 - `notes/` — Conceptual documentation and reflective technical consolidation  
