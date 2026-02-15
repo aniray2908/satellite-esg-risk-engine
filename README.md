@@ -34,28 +34,23 @@ The long-term goal is to formalize this into a systematic risk-scoring framework
 
 ---
 
-## Current Development Focus
+## Current Development Status
 
-The foundational phase includes:
+Phase 0 — Foundational Grounding (Completed)
 
-- Understanding raster vs vector geospatial data  
-- Interpreting multi-spectral satellite bands  
-- Computing NDVI from Sentinel-2 imagery  
-- Visual validation of vegetation signals  
-- Temporal NDVI comparison across time windows  
+- GIS and raster fundamentals consolidated
+- NDVI computation validated using Sentinel-2
+- Spectral alignment verified (True Color vs NDVI)
+- Temporal variation analyzed with seasonality awareness
 
-The system is being built incrementally, with emphasis on conceptual clarity, reproducibility, and disciplined technical growth.
+Phase 1 — Spatial Quantification (Completed)
 
----
+- 5 km spatial buffer defined
+- Multi-image median compositing implemented
+- Mean NDVI extraction inside buffer operational
+- Seasonally controlled multi-year time series (2019–2023) generated
 
-## Project Status
-
-Current Phase: Foundational Exploration
-
-- NDVI computation validated
-- Visual spectral alignment confirmed
-- Temporal variation observed
-- Spatial buffering and quantitative aggregation next
+The system now produces structured vegetation time-series data for a defined geographic region.
 
 ---
 
