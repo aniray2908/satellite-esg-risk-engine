@@ -2,64 +2,84 @@
 
 ## Objective
 
-Validate whether the satellite-based environmental signal pipeline can detect exposed mining footprint using multi-spectral imagery.
+Validate whether a satellite-derived vegetation signal can detect and quantify exposed mining footprint.
 
-This case study applies the Phase 1 methodology to a real-world large-scale open-pit mining operation.
-
----
-
-## Site Selection
-
-Carajás Mine is one of the largest open-pit iron ore mines globally, located within the Amazon biome in Brazil.
-
-The site was selected because:
-
-- The exposed pit is visually distinct from surrounding forest.
-- It represents a high-impact industrial footprint.
-- It provides a strong test case for vegetation-based metrics.
+This case study evaluates methodological stability across spatial and temporal refinements.
 
 ---
 
-## Initial Attempt — Mean NDVI (Forest-Centered Coordinate)
+# v1 — Regional Coordinate, 5km Buffer
 
-Using an approximate regional coordinate, a 1 km buffer was analyzed.
+**Configuration**
+- Approximate regional coordinate
+- 5 km circular buffer
+- Jan–Mar seasonal composite
+- Metric: Mean NDVI
 
-Results showed:
+**Result**
+- Mean NDVI ≈ 0.6–0.7
+- Strong vegetation dominance
 
-- High mean NDVI (~0.6–0.7)
-- Low NDVI fraction ≈ 0
+**Observation**
+The mining footprint was not detected.
+The signal reflected dense surrounding Amazon forest.
 
-This indicated dense vegetation dominance.
-
-Upon visual inspection, it was determined that the coordinate was centered on forest rather than the exposed pit.
-
-### Key Insight
-
-Environmental signal extraction is highly sensitive to spatial anchoring.
-
-Incorrect spatial targeting can completely mask industrial footprint.
-
----
-
-## Revised Approach — Pit-Centered Buffer
-
-A new coordinate was manually selected at the center of the exposed open pit.
-
-Configuration:
-
-- Buffer radius: 1 km
-- Composite: Full-year median (Jan–Dec)
-- Dataset: Sentinel-2 Surface Reflectance (Harmonized)
-- Years: 2019–2023
-
-Metrics extracted:
-
-- Mean NDVI
-- Low NDVI Fraction (NDVI < 0.2)
+**Conclusion**
+Large spatial buffers in heterogeneous regions smooth industrial signal.
+Mean NDVI alone is insufficient at broad scale.
 
 ---
 
-## Results (Full-Year Composite)
+# v2 — Reduced Buffer (1km), Still Regional Coordinate
+
+**Configuration**
+- 1 km buffer
+- Jan–Mar seasonal composite
+- Metric: Mean NDVI
+
+**Result**
+- NDVI unstable year-to-year
+- Still largely vegetation-dominated
+
+**Observation**
+Reducing buffer increased sensitivity but signal remained unstable.
+
+**Conclusion**
+Buffer size influences signal, but spatial anchoring must be precise.
+
+---
+
+# v3 — Low NDVI Fraction (Seasonal Window)
+
+**Configuration**
+- 1 km buffer
+- Jan–Mar seasonal composite
+- Metric: Low NDVI Fraction (NDVI < 0.2)
+
+**Result**
+- Higher sensitivity to exposed land
+- Significant volatility across years
+
+**Observation**
+Threshold-based metric improved mining sensitivity,
+but seasonal cloud dynamics in equatorial regions introduced instability.
+
+**Conclusion**
+Metric refinement alone is insufficient without temporal stabilization.
+
+---
+
+# v4 — Pit-Centered, Full-Year Composite
+
+**Configuration**
+- Coordinate manually centered on exposed pit
+- 1 km buffer
+- Full-year median composite
+- Metrics:
+    - Mean NDVI
+    - Low NDVI Fraction (< 0.2)
+
+**Results**
 
 | Year | Mean NDVI | Low NDVI Fraction |
 |------|-----------|------------------|
@@ -69,38 +89,41 @@ Metrics extracted:
 | 2022 | 0.030 | 0.954 |
 | 2023 | 0.015 | 0.971 |
 
----
-
-## Interpretation
+**Observations**
 
 - Mean NDVI remains near zero across all years.
-- Low NDVI fraction remains extremely high (86%–97%).
-- No evidence of vegetation recovery within the pit-centered buffer.
-- 2021 shows peak exposure (~97.5%), suggesting expansion or intensified excavation.
+- Low NDVI fraction remains consistently high (86–97%).
+- 2021 shows peak exposure (~97.5%).
+- No vegetation recovery within the pit-centered zone.
 
-The results align with visual satellite imagery.
+**Interpretation**
 
-The mining footprint is persistent and highly exposed.
+The exposed mining footprint is persistent and dominant within the 1 km pit-centered buffer.
 
----
+Temporal smoothing via full-year compositing stabilized tropical cloud effects.
 
-## Methodological Lessons
-
-1. Spatial anchoring determines signal validity.
-2. Mean NDVI alone can obscure industrial signal when mixed with vegetation.
-3. Low NDVI fraction provides a more sensitive proxy for exposed land.
-4. Full-year compositing stabilizes tropical cloud volatility.
+Spatial anchoring proved critical for signal validity.
 
 ---
 
-## Conclusion
+# Methodological Insights
 
-The satellite-based environmental signal pipeline successfully detects persistent exposed mining footprint when spatial targeting is correct.
+1. Spatial anchoring determines environmental signal integrity.
+2. Mean NDVI can mask industrial footprint when mixed with vegetation.
+3. Threshold-based metrics (low NDVI fraction) are more mining-sensitive.
+4. Full-year compositing stabilizes equatorial cloud volatility.
+5. Buffer scale directly influences footprint detectability.
 
-This validates the feasibility of vegetation-based environmental risk indicators for industrial asset monitoring.
+---
 
-Future work will extend analysis to:
+# Phase 2 Conclusion
 
-- Multiple mining sites
-- Spatial footprint expansion measurement
-- Integration into a structured risk index framework
+The satellite-based vegetation pipeline successfully detects persistent exposed mining footprint when:
+
+- Spatial targeting is precise.
+- Buffer scale is appropriate.
+- Temporal aggregation is stabilized.
+
+This validates the feasibility of vegetation-derived environmental exposure indicators for industrial asset monitoring.
+
+Phase 3 will expand toward comparative site analysis and structured environmental risk scoring.
