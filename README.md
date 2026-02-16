@@ -37,20 +37,25 @@ The long-term goal is to formalize this into a systematic risk-scoring framework
 ## Current Development Status
 
 Phase 0 — Foundational Grounding (Completed)
-
 - GIS and raster fundamentals consolidated
 - NDVI computation validated using Sentinel-2
 - Spectral alignment verified (True Color vs NDVI)
 - Temporal variation analyzed with seasonality awareness
 
 Phase 1 — Spatial Quantification (Completed)
-
 - 5 km spatial buffer defined
 - Multi-image median compositing implemented
 - Mean NDVI extraction inside buffer operational
 - Seasonally controlled multi-year time series (2019–2023) generated
 
-The system now produces structured vegetation time-series data for a defined geographic region.
+Phase 2 — Case Study: Carajás Mine (Completed)
+- Iterative methodological refinement documented
+- Spatial anchoring corrected (pit-centered coordinate)
+- Threshold-based low NDVI fraction implemented
+- Full-year median composites used for stability
+- Persistent exposed mining footprint quantified
+
+The system now produces structured vegetation metrics and case-study validation for real mining sites.
 
 ---
 
