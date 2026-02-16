@@ -1,5 +1,10 @@
 # Satellite-Based Environmental Risk Engine  
 ### Mining Asset Vegetation Degradation Monitoring via Multi-Spectral Satellite Imagery
+![Status](https://img.shields.io/badge/status-active-brightgreen)
+![Phase](https://img.shields.io/badge/phase-2-blue)
+![Data](https://img.shields.io/badge/data-Sentinel--2-lightgrey)
+![Reproducible](https://img.shields.io/badge/reproducible-yes-success)
+
 
 ## Overview
 
