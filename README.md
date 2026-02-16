@@ -84,6 +84,20 @@ Future stages will include:
 
 ---
 
+## Reproducibility
+
+To reproduce the Phase 2 Carajás case study:
+
+1. Run `experiments/gee/carajas/v4_low_ndvi_full_year_pit_centered.js` in Google Earth Engine.
+2. Export the resulting table as CSV.
+3. Place the CSV in `assets/data/`.
+4. Run `experiments/python/carajas/plot_v4_trends.py`.
+5. Regenerate the plots in `assets/plots/`.
+
+All results in the repository are generated via these scripts.
+
+---
+
 This repository functions as both:
 
 - A technical build log  
