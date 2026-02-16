@@ -106,6 +106,26 @@ Spatial anchoring proved critical for signal validity.
 
 ---
 
+## Visual Trends
+
+### Mean NDVI (2019–2023)
+
+![Carajás Mean NDVI](../assets/plots/carajas_mean_ndvi.png)
+
+The mean NDVI remains near zero across all years, indicating persistent exposed surface with minimal vegetation recovery within the pit-centered buffer.
+
+---
+
+### Low NDVI Fraction (NDVI < 0.2)
+
+![Carajás Low NDVI Fraction](../assets/plots/carajas_low_ndvi_fraction.png)
+
+The low NDVI fraction remains consistently high (86–97%), confirming that the majority of the 1 km zone is classified as exposed land.
+
+Plots generated using `experiments/python/carajas/plot_v4_trends.py`.
+
+---
+
 # Methodological Insights
 
 1. Spatial anchoring determines environmental signal integrity.
