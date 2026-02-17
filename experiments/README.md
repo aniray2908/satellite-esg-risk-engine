@@ -1,26 +1,39 @@
 # Experiments
 
-This directory contains practical implementations and exploratory scripts used to validate core concepts and refine analytical metrics.
+This directory contains reproducible analytical scripts used during metric development, validation, and comparative analysis.
+
+---
 
 ## GEE Scripts
 
-Earth Engine scripts used during development are organized under subfolders, especially for case studies:
-experiments/gee/carajas/
+Located in:
 
-Phase 2 scripts include:
+experiments/gee/
+
+### Carajás (Brazil)
 - `v1_mean_ndvi_regional_5km.js`
 - `v2_mean_ndvi_1km.js`
 - `v3_low_ndvi_fraction_seasonal.js`
 - `v4_low_ndvi_full_year_pit_centered.js`
 
-Each version represents a methodological refinement in spatial targeting, temporal aggregation, and metric design.
+### Gevra (India)
+- `v1_low_ndvi_full_year_pit_centered.js`
+
+Each script represents a structured stage in signal refinement and generalization.
+
+---
 
 ## Python Scripts
 
-Python scripts are used for post-processing and visualization of exported CSV results:
-experiments/python/carajas/
+Located in:
 
-Example:
-- `plot_v4_trends.py` generates visual plots for Carajás mining metrics.
+experiments/python/
 
-All implementations support the gradual construction of a robust environmental risk modeling framework.
+### Site-Level Plotting
+- `carajas/plot_v4_trends.py`
+- `gevra/plot_v1_trends.py`
+
+### Comparative Analysis
+- `comparative_analysis.ipynb`
+
+All outputs (CSV and plots) are reproducible from these scripts.
