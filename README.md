@@ -41,26 +41,56 @@ The long-term goal is to formalize this into a systematic risk-scoring framework
 
 ## Current Development Status
 
-Phase 0 — Foundational Grounding (Completed)
-- GIS and raster fundamentals consolidated
-- NDVI computation validated using Sentinel-2
-- Spectral alignment verified (True Color vs NDVI)
-- Temporal variation analyzed with seasonality awareness
+### Phase 0 — Conceptual Grounding (Completed)
+- GIS fundamentals consolidated
+- Raster vs vector clarified
+- NDVI spectral logic validated
+- Seasonal variability explored
 
-Phase 1 — Spatial Quantification (Completed)
-- 5 km spatial buffer defined
-- Multi-image median compositing implemented
-- Mean NDVI extraction inside buffer operational
-- Seasonally controlled multi-year time series (2019–2023) generated
+### Phase 1 — Signal Extraction Pipeline (Completed)
+- Spatial buffer-based analysis implemented
+- Sentinel-2 harmonized dataset integrated
+- Median compositing operational
+- Multi-year NDVI extraction (2019–2023)
+- Temporal structuring established
 
-Phase 2 — Case Study: Carajás Mine (Completed)
-- Iterative methodological refinement documented
+### Phase 2 — Deep Case Study Validation (Completed)
+
+Case Study: **Carajás Mine (Brazil)**
+
+- Multi-scale buffer refinement (5 km → 1 km)
+- Metric evolution (Mean NDVI → Low NDVI Fraction)
+- Seasonal instability identified
+- Full-year composite stabilization applied
 - Spatial anchoring corrected (pit-centered coordinate)
-- Threshold-based low NDVI fraction implemented
-- Full-year median composites used for stability
 - Persistent exposed mining footprint quantified
+- Exported CSV metrics and Python visualizations generated
 
-The system now produces structured vegetation metrics and case-study validation for real mining sites.
+See: `notes/case-study-carajas.md`
+
+### Phase 3 — Cross-Site Generalization (Completed)
+
+Case Study: **Gevra Coal Mine (India)**
+
+- Validated pit-centered 1 km buffer approach
+- Applied full-year median composite (2019–2023)
+- Extracted Mean NDVI and Low NDVI Fraction
+- Confirmed stable exposure profile
+- Performed cross-site comparative analysis
+
+See:
+- `notes/case-study-gevra.md`
+- `experiments/python/comparative_analysis.ipynb`
+
+---
+
+## Architectural Direction
+
+The project is evolving from environmental signal extraction toward a modular satellite-derived risk intelligence framework.
+
+Environmental exposure currently serves as the first validated signal module.
+
+Future phases will formalize structured risk scoring and aggregation.
 
 ---
 
