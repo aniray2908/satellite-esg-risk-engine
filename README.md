@@ -1,7 +1,7 @@
 # Satellite-Based Environmental Risk Engine  
-### Mining Asset Vegetation Degradation Monitoring via Multi-Spectral Satellite Imagery
+### Multi-Spectral Mining Exposure Quantification & Cross-Site Risk Validation
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
-![Phase](https://img.shields.io/badge/phase-2-blue)
+![Phase](https://img.shields.io/badge/phase-3-blue)
 ![Data](https://img.shields.io/badge/data-Sentinel--2-lightgrey)
 ![Reproducible](https://img.shields.io/badge/reproducible-yes-success)
 
@@ -33,9 +33,9 @@ Corporate ESG disclosures are largely self-reported and infrequently verified.
 
 Satellite data enables independent, scalable, and time-consistent environmental monitoring.
 
-This project explores whether vegetation change around mining assets can serve as a measurable proxy for environmental degradation risk.
+This project evaluates whether satellite-derived vegetation exposure metrics can serve as stable, comparable proxies for industrial environmental risk.
 
-The long-term goal is to formalize this into a systematic risk-scoring framework.
+Cross-site validation has been completed across multiple geographies to assess signal robustness.
 
 ---
 
@@ -107,10 +107,11 @@ Future phases will formalize structured risk scoring and aggregation.
 
 Future stages will include:
 
-- Buffer-based spatial analysis around real mining assets  
-- Temporal trend modeling with seasonal controls  
-- Vegetation loss velocity estimation  
-- Formalization of a Corporate Environmental Risk Index (CERI)  
+- Structured environmental exposure scoring
+- Feature normalization and cross-asset comparison
+- Formalization of a Corporate Environmental Risk Index (CERI)
+- Integration of additional satellite-derived risk signals
+- Development of a modular satellite-based risk intelligence framework
 
 ---
 
@@ -125,6 +126,14 @@ To reproduce the Phase 2 Carajás case study:
 5. Regenerate the plots in `assets/plots/`.
 
 All results in the repository are generated via these scripts.
+
+To reproduce the Phase 3 Gevra case study:
+
+1. Run `experiments/gee/gevra/v1_low_ndvi_full_year_pit_centered.js` in Google Earth Engine.
+2. Export the resulting table as CSV.
+3. Place the CSV in `assets/data/`.
+4. Run `experiments/python/gevra/plot_v1_trends.py`.
+5. Run `experiments/python/comparative_analysis.ipynb` for cross-site comparison.
 
 ---
 
