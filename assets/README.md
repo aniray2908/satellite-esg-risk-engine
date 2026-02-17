@@ -1,16 +1,31 @@
 # Assets
 
-This directory stores visual artifacts and supporting materials generated during experimentation. This may include:
+This directory contains non-code artifacts generated from experiments.
+
+---
 
 ## data/
-- Exported CSV tables of metrics from Earth Engine
+
+Exported CSV metric tables from Google Earth Engine analyses.
+
+Examples:
+- `carajas_pit_centered_full_year_v2_1.csv`
+- `gevra_pit_centered_full_year_v1.csv`
+
+---
 
 ## plots/
-- Visualization outputs (PNG) generated via Python scripts
-  - e.g. `carajas_mean_ndvi.png`
-  - `carajas_low_ndvi_fraction.png`
 
-## screenshots/
-- Optional screenshots showing spatial context or intermediate results
+Visualization outputs generated via Python scripts.
 
-These assets provide visual validation of technical outputs and support interpretability.
+Site-Level:
+- `carajas_mean_ndvi.png`
+- `carajas_low_ndvi_fraction.png`
+- `gevra_mean_ndvi.png`
+- `gevra_low_ndvi_fraction.png`
+
+Comparative:
+- `comparison_mean_ndvi.png`
+- `comparison_low_ndvi_fraction.png`
+
+All artifacts are reproducible via scripts in `experiments/`.
