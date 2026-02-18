@@ -1,0 +1,6 @@
+system:index,image_count,low_ndvi_fraction,mean_ndvi,year,.geo
+0,48,1.0,-0.018209499730441506,2019,"{""type"":""MultiPoint"",""coordinates"":[]}"
+1,49,1.0,-0.020667752294444657,2020,"{""type"":""MultiPoint"",""coordinates"":[]}"
+2,39,1.0,-0.021023174520194435,2021,"{""type"":""MultiPoint"",""coordinates"":[]}"
+3,42,0.9979799671589058,0.0029177128142309737,2022,"{""type"":""MultiPoint"",""coordinates"":[]}"
+4,41,1.0,0.001240619897764382,2023,"{""type"":""MultiPoint"",""coordinates"":[]}"
