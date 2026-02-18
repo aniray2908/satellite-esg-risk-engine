@@ -55,10 +55,10 @@ experiments/python/
 
 Each asset has its own reproducible plotting script:
 
-- `carajas/plot_v4_trends.py`
-- `gevra/plot_v1_trends.py`
-- `bingham/plot_v1_trends.py`
-- `grasberg/plot_v1_trends.py`
+- `carajas/plot_v4_trends.ipynb`
+- `gevra/plot_v1_trends.ipynb`
+- `bingham/plot_v1_trends.ipynb`
+- `grasberg/plot_v1_trends.ipynb`
 
 These scripts generate:
 
