@@ -1,5 +1,5 @@
-# Satellite-Based Environmental Risk Engine  
-### Multi-Spectral Mining Exposure Quantification & Portfolio-Level Risk Modeling
+# Satellite-based exposure scoring framework
+### Multi-Spectral Mining Exposure Quantification & Cross-Asset Risk Scoring
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
 ![Phase](https://img.shields.io/badge/phase-4-blue)
 ![Data](https://img.shields.io/badge/data-Sentinel--2-lightgrey)
@@ -142,7 +142,7 @@ Future phases will explore:
 - Multi-signal feature expansion
 - Automated asset ingestion
 - Portfolio-scale risk benchmarking
-- Modular satellite-derived risk intelligence architecture
+- Scalable satellite-based risk scoring system
 
 ---
 
