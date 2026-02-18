@@ -1,7 +1,7 @@
 # Satellite-Based Environmental Risk Engine  
-### Multi-Spectral Mining Exposure Quantification & Cross-Site Risk Validation
+### Multi-Spectral Mining Exposure Quantification & Portfolio-Level Risk Modeling
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
-![Phase](https://img.shields.io/badge/phase-3-blue)
+![Phase](https://img.shields.io/badge/phase-4-blue)
 ![Data](https://img.shields.io/badge/data-Sentinel--2-lightgrey)
 ![Reproducible](https://img.shields.io/badge/reproducible-yes-success)
 
@@ -13,17 +13,20 @@ This repository documents the structured development of a satellite-driven envir
 The objective is to design and implement a system that:
 
 - Extracts multi-spectral satellite imagery  
-- Computes vegetation health indicators (NDVI)  
-- Tracks temporal environmental change  
-- Quantifies sustained vegetation degradation  
-- Lays groundwork for a Corporate Environmental Risk Index (CERI)  
+- Computes vegetation exposure indicators (NDVI-based metrics)  
+- Tracks temporal environmental stability  
+- Quantifies sustained industrial land exposure  
+- Formalizes a Corporate Environmental Risk Index (CERI)  
 
-This project sits at the intersection of:
+The project has evolved from signal extraction into portfolio-level risk modeling.
+
+This work sits at the intersection of:
 
 - Geospatial analytics  
-- Remote sensing fundamentals  
-- Environmental risk modeling  
-- Quantitative reasoning  
+- Remote sensing  
+- Statistical feature engineering  
+- Risk modeling  
+- Applied machine learning  
 
 ---
 
@@ -35,7 +38,7 @@ Satellite data enables independent, scalable, and time-consistent environmental 
 
 This project evaluates whether satellite-derived vegetation exposure metrics can serve as stable, comparable proxies for industrial environmental risk.
 
-Cross-site validation has been completed across multiple geographies to assess signal robustness.
+Cross-site validation and portfolio-level modeling have been completed to assess robustness and scalability.
 
 ---
 
@@ -47,12 +50,16 @@ Cross-site validation has been completed across multiple geographies to assess s
 - NDVI spectral logic validated
 - Seasonal variability explored
 
+---
+
 ### Phase 1 — Signal Extraction Pipeline (Completed)
 - Spatial buffer-based analysis implemented
 - Sentinel-2 harmonized dataset integrated
 - Median compositing operational
 - Multi-year NDVI extraction (2019–2023)
 - Temporal structuring established
+
+---
 
 ### Phase 2 — Deep Case Study Validation (Completed)
 
@@ -64,9 +71,10 @@ Case Study: **Carajás Mine (Brazil)**
 - Full-year composite stabilization applied
 - Spatial anchoring corrected (pit-centered coordinate)
 - Persistent exposed mining footprint quantified
-- Exported CSV metrics and Python visualizations generated
 
 See: `notes/case-study-carajas.md`
+
+---
 
 ### Phase 3 — Cross-Site Generalization (Completed)
 
@@ -84,62 +92,102 @@ See:
 
 ---
 
+### Phase 4 — Portfolio Expansion & Risk Modeling (Completed)
+
+Additional Assets:
+
+- **Bingham Canyon (USA)**
+- **Grasberg Mine (Indonesia)**
+
+Portfolio now includes four geographically diverse mining operations.
+
+#### CERI v1
+Two-asset prototype scoring model:
+- Feature engineering (Exposure, Suppression, Persistence)
+- Min-max normalization
+- Z-score normalization
+- Weighted composite score
+- Illustrative clustering
+
+#### CERI v2
+Four-asset portfolio-level model:
+- Portfolio-wide feature engineering
+- Z-score normalization
+- Composite risk scoring (CERI_z)
+- KMeans clustering
+- Silhouette score evaluation
+- Automated risk tiering
+
+Modeling notebooks:
+- `experiments/python/ceri/ceri_v1.ipynb`
+- `experiments/python/ceri/ceri_v2.ipynb`
+
+Phase 4 represents the transition from metric validation to structured environmental risk modeling.
+
+---
+
 ## Architectural Direction
 
-The project is evolving from environmental signal extraction toward a modular satellite-derived risk intelligence framework.
+The project has evolved from:
+
+Satellite Signal Extraction  
+→ Cross-Site Validation  
+→ Portfolio-Level Statistical Modeling  
 
 Environmental exposure currently serves as the first validated signal module.
 
-Future phases will formalize structured risk scoring and aggregation.
+Future phases will explore:
+
+- Data-driven weight optimization
+- Multi-signal feature expansion
+- Automated asset ingestion
+- Portfolio-scale risk benchmarking
+- Modular satellite-derived risk intelligence architecture
 
 ---
 
 ## Repository Structure
 
-- `notes/` — Conceptual documentation and reflective technical consolidation  
-- `experiments/` — Hands-on implementations (Google Earth Engine & Python)  
-- `assets/` — Visual outputs and analysis artifacts  
-- `references/` — Supporting literature and data sources  
-
----
-
-## Long-Term Direction
-
-Future stages will include:
-
-- Structured environmental exposure scoring
-- Feature normalization and cross-asset comparison
-- Formalization of a Corporate Environmental Risk Index (CERI)
-- Integration of additional satellite-derived risk signals
-- Development of a modular satellite-based risk intelligence framework
+- `notes/` — Conceptual documentation and case studies  
+- `experiments/` — GEE scripts, Python modeling, CERI notebooks  
+- `assets/` — Generated CSV tables and plots  
+- `references/` — Supporting literature and datasets  
 
 ---
 
 ## Reproducibility
 
-To reproduce the Phase 2 Carajás case study:
+All outputs are fully reproducible via:
 
-1. Run `experiments/gee/carajas/v4_low_ndvi_full_year_pit_centered.js` in Google Earth Engine.
-2. Export the resulting table as CSV.
-3. Place the CSV in `assets/data/`.
-4. Run `experiments/python/carajas/plot_v4_trends.py`.
-5. Regenerate the plots in `assets/plots/`.
+1. Running the corresponding GEE extraction script  
+2. Exporting CSV results  
+3. Running associated Python scripts or notebooks  
 
-All results in the repository are generated via these scripts.
+### Assets Covered:
 
-To reproduce the Phase 3 Gevra case study:
+- Carajás (Brazil)
+- Gevra (India)
+- Bingham Canyon (USA)
+- Grasberg (Indonesia)
 
-1. Run `experiments/gee/gevra/v1_low_ndvi_full_year_pit_centered.js` in Google Earth Engine.
-2. Export the resulting table as CSV.
-3. Place the CSV in `assets/data/`.
-4. Run `experiments/python/gevra/plot_v1_trends.py`.
-5. Run `experiments/python/comparative_analysis.ipynb` for cross-site comparison.
+No manual modification is applied to exported data.
 
 ---
 
-This repository functions as both:
+## Project Philosophy
 
-- A technical build log  
-- And a structured learning archive  
+This repository functions as:
 
-The emphasis is on depth, rigor, and steady progression.
+- A structured geospatial modeling build log  
+- A versioned risk scoring framework  
+- A progressively evolving environmental intelligence prototype  
+
+The emphasis is on:
+
+- Methodological rigor  
+- Statistical grounding  
+- Reproducibility  
+- Architectural clarity  
+- Measured progression  
+
+Development proceeds in deliberate, versioned stages rather than ad hoc expansion.
