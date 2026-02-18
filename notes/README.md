@@ -8,7 +8,7 @@ The purpose of these notes is to:
 - Clarify geospatial and remote sensing concepts
 - Document methodological refinement
 - Interpret analytical results
-- Transition from signal extraction to risk architecture
+- Transition from signal extraction to cross-asset risk scoring
 
 Each document captures a distinct milestone in the development of the Satellite-Based Environmental Risk Engine.
 
@@ -47,6 +47,26 @@ See: `case-study-gevra.md`
 
 ---
 
+### Case Study 03 — Bingham Canyon (USA)
+- Portfolio expansion
+- Ultra-high exposure open-pit structure
+- Near-total exposed surface footprint
+- Strong multi-year stability
+
+See: `case-study-bingham.md`
+
+---
+
+### Case Study 04 — Grasberg Mine (Indonesia)
+- High-altitude tropical open-pit analysis
+- Near-total exposure fraction
+- Cross-climate validation
+- Stable exposure profile despite regional cloud variability
+
+See: `case-study-grasberg.md`
+
+---
+
 ## Comparative Analysis
 
 - Cross-site exposure contrast
@@ -59,13 +79,26 @@ Supporting notebook: `experiments/python/comparative_analysis.ipynb`
 
 ---
 
+## Risk Scoring Framework
+
+Phase 4 introduced a structured Corporate Environmental Risk Index (CERI).
+
+- `ceri-architecture.md` — Feature definitions and scoring logic.
+- `phase-4-summary.md` — Portfolio-level scoring implementation and version progression (CERI v1 → v2).
+
+This phase formalized cross-asset exposure comparison and automated risk tiering.
+
+---
+
 ## Project Trajectory
 
 The repository has progressed through:
 
-1. Conceptual grounding
-2. Signal extraction pipeline development
-3. Deep case study validation
-4. Cross-site generalization
+1. Conceptual grounding  
+2. Signal extraction pipeline development  
+3. Deep case study validation  
+4. Cross-site generalization  
+5. Cross-asset risk scoring (CERI v1 → v2)
 
-The next phase will formalize a structured satellite-derived risk scoring framework built upon validated exposure signals.
+The next phase will focus on refinement, expanded asset coverage,
+and incremental improvements to the scoring framework.
