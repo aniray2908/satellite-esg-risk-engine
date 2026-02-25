@@ -19,7 +19,7 @@ The framework:
 - Quantifies sustained industrial land exposure  
 - Formalizes a Corporate Environmental Risk Index (CERI)  
 
-The project has evolved from signal validation to portfolio-level risk modeling and structural segmentation.
+The project has evolved from signal validation to portfolio-level risk modeling, optimization, and governance validation.
 
 This work sits at the intersection of:
 
@@ -43,7 +43,7 @@ Satellite data enables:
 
 This project evaluates whether satellite-derived vegetation exposure metrics can serve as structured, comparable proxies for industrial environmental risk.
 
-Portfolio-level validation has been completed to assess robustness and geometric stability.
+Portfolio-level validation, clustering analysis, and weight optimization have been completed to assess structural robustness and ranking stability.
 
 ---
 
@@ -89,7 +89,7 @@ See: `notes/case-study-carajas.md`
 - Cross-site comparative analysis  
 
 See:
-- `notes/case-study-gevra.md`
+- `notes/case-study-gevra.md`  
 - `experiments/python/comparative_analysis.ipynb`
 
 ---
@@ -106,10 +106,10 @@ Portfolio now spans four geographically diverse mining operations.
 #### CERI v1  
 Two-asset prototype demonstrating feature design and composite scoring.
 
-#### CERI v2 (Current Baseline)  
+#### CERI v2 (Governance Baseline)  
 Four-asset portfolio model featuring:
 
-- Standardized feature engineering  
+- Standardized feature engineering (F1, F2, F3)  
 - Z-score normalization  
 - Composite risk scoring (CERI_z)  
 - Weight sensitivity testing  
@@ -119,14 +119,36 @@ Four-asset portfolio model featuring:
 
 CERI v2 represents the stabilized exposure scoring baseline.
 
-Modeling notebooks:
-
-- `experiments/python/ceri/ceri_v1.ipynb`  
-- `experiments/python/ceri/ceri_v2.ipynb`  
-
 Final feature layer exported to:
 
 `assets/data/ceri_v2_feature_layer.csv`
+
+---
+
+### Phase 5 — Weight Optimization & Governance Validation (CERI v3)
+
+CERI v3 introduces data-driven weight optimization:
+
+- Structured weight grid search  
+- Silhouette maximization (k = 3)  
+- Ranking shift quantification  
+- Spearman & Kendall stability analysis  
+- Governance decision framework  
+
+Key finding:
+
+- Optimization improves geometric separation  
+- Extreme-tier assets remain stable  
+- Moderate-tier ordering shifts under heavy stability weighting  
+
+Governance Decision:
+
+CERI v2 remains the official baseline model.  
+CERI v3 functions as analytical validation and robustness confirmation.
+
+See:
+- `notes/ceri-v3-weight-optimization.md`  
+- `notes/ceri-governance-decision.md`
 
 ---
 
@@ -137,12 +159,13 @@ The framework has evolved from:
 Satellite Signal Extraction  
 → Cross-Site Validation  
 → Portfolio-Level Statistical Modeling  
+→ Optimization & Governance Validation  
 
 Environmental exposure currently functions as the first validated signal module.
 
-Future development will explore:
+Future development may explore:
 
-- Data-driven weight optimization  
+- Tier automation logic  
 - Multi-signal feature expansion  
 - Automated asset ingestion  
 - Portfolio-scale benchmarking  
@@ -152,7 +175,7 @@ Future development will explore:
 
 ## Repository Structure
 
-- `notes/` — Conceptual documentation and structured model specifications  
+- `notes/` — Conceptual documentation, case studies, and governance specifications  
 - `experiments/` — GEE extraction scripts and Python modeling notebooks  
 - `assets/` — Generated CSV feature layers and plots  
 - `references/` — Supporting datasets and literature  
@@ -174,7 +197,8 @@ Covered assets:
 - Bingham Canyon (USA)  
 - Grasberg (Indonesia)  
 
-CERI v2 outputs are versioned and not manually altered post-export.
+CERI v2 outputs are versioned and not manually altered post-export.  
+CERI v3 operates exclusively on the frozen v2 feature layer.
 
 ---
 
@@ -184,6 +208,7 @@ This repository represents:
 
 - A structured geospatial modeling system  
 - A versioned environmental exposure scoring framework  
+- A governed, optimization-validated composite scoring model  
 - A modular foundation for scalable risk analytics  
 
 The emphasis is on:
@@ -191,7 +216,7 @@ The emphasis is on:
 - Statistical rigor  
 - Geometric interpretability  
 - Robustness testing  
-- Architectural clarity  
+- Governance discipline  
 - Version-controlled evolution  
 
-Development proceeds in deliberate, versioned stages rather than ad hoc experimentation.
+Development proceeds in deliberate, documented stages rather than ad hoc experimentation.
