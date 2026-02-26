@@ -1,7 +1,7 @@
 # Satellite-Based Exposure Scoring Framework  
 ### Multi-Spectral Mining Exposure Quantification & Cross-Asset Risk Scoring
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
-![Version](https://img.shields.io/badge/version-v2.0%20baseline-blue)
+![Version](https://img.shields.io/badge/version-v4.0%20deployment-blue)
 ![Data](https://img.shields.io/badge/data-Sentinel--2-lightgrey)
 ![Reproducible](https://img.shields.io/badge/reproducible-yes-success)
 
@@ -9,7 +9,7 @@
 
 ## Overview
 
-This repository documents the development of a satellite-derived environmental exposure scoring system focused on mining assets.
+This repository documents the end-to-end development of a satellite-derived environmental exposure scoring system focused on mining assets.
 
 The framework:
 
@@ -18,8 +18,9 @@ The framework:
 - Tracks multi-year environmental stability  
 - Quantifies sustained industrial land exposure  
 - Formalizes a Corporate Environmental Risk Index (CERI)  
+- Converts composite scores into deterministic deployment-ready risk tiers  
 
-The project has evolved from signal validation to portfolio-level risk modeling, optimization, and governance validation.
+The project has evolved from signal validation to portfolio-level modeling, optimization, governance validation, and operational tier logic.
 
 This work sits at the intersection of:
 
@@ -43,7 +44,7 @@ Satellite data enables:
 
 This project evaluates whether satellite-derived vegetation exposure metrics can serve as structured, comparable proxies for industrial environmental risk.
 
-Portfolio-level validation, clustering analysis, and weight optimization have been completed to assess structural robustness and ranking stability.
+Portfolio-level validation, clustering analysis, weight optimization, and deployment-tier logic have been implemented to assess structural robustness and operational readiness.
 
 ---
 
@@ -94,14 +95,14 @@ See:
 
 ---
 
-### Phase 4 — Portfolio-Level Risk Modeling (CERI)
+### Phase 4 — Portfolio-Level Risk Modeling (CERI v1 → v2)
 
 Two additional assets were integrated:
 
 - **Bingham Canyon (USA)**  
 - **Grasberg Mine (Indonesia)**  
 
-Portfolio now spans four geographically diverse mining operations.
+Portfolio spans four geographically diverse mining operations.
 
 #### CERI v1  
 Two-asset prototype demonstrating feature design and composite scoring.
@@ -117,17 +118,17 @@ Four-asset portfolio model featuring:
 - KMeans clustering (k=2, k=3)  
 - Silhouette-based validation  
 
-CERI v2 represents the stabilized exposure scoring baseline.
-
 Final feature layer exported to:
 
 `assets/data/ceri_v2_feature_layer.csv`
 
+CERI v2 remains the official scoring baseline.
+
 ---
 
-### Phase 5 — Weight Optimization & Governance Validation (CERI v3)
+### Phase 5 — Weight Optimization & Robustness Validation (CERI v3)
 
-CERI v3 introduces data-driven weight optimization:
+CERI v3 introduced data-driven weight optimization:
 
 - Structured weight grid search  
 - Silhouette maximization (k = 3)  
@@ -135,16 +136,17 @@ CERI v3 introduces data-driven weight optimization:
 - Spearman & Kendall stability analysis  
 - Governance decision framework  
 
-Key finding:
+Key findings:
 
 - Optimization improves geometric separation  
 - Extreme-tier assets remain stable  
 - Moderate-tier ordering shifts under heavy stability weighting  
+- Ranking stability remains strong (Spearman ≈ 0.80)  
 
 Governance Decision:
 
-CERI v2 remains the official baseline model.  
-CERI v3 functions as analytical validation and robustness confirmation.
+CERI v2 retained as baseline.  
+CERI v3 serves as analytical validation layer.
 
 See:
 - `notes/ceri-v3-weight-optimization.md`  
@@ -152,30 +154,45 @@ See:
 
 ---
 
-## Architectural Direction
+### Phase 6 — Deployment Tier Logic (CERI v4)
 
-The framework has evolved from:
+CERI v4 operationalizes the framework into a deterministic classification system.
 
-Satellite Signal Extraction  
-→ Cross-Site Validation  
-→ Portfolio-Level Statistical Modeling  
-→ Optimization & Governance Validation  
+Includes:
+
+- Z-score threshold-based tier assignment  
+- High / Moderate / Low risk segmentation  
+- Margin-based confidence scoring  
+- Confidence band labeling (High / Medium / Low)  
+- Deployment-ready output table  
+
+No clustering dependency at deployment stage.
+
+CERI v4 converts validated composite scoring into a stable, production-style risk classification layer.
+
+See:
+- `notes/ceri-v4-deployment.md`  
+- `experiments/python/ceri/ceri_v4_deployment_logic.ipynb`
+
+---
+
+## System Architecture
+
+The framework now consists of:
+
+1. Satellite Extraction Layer (GEE scripts)  
+2. Feature Engineering Layer (F1, F2, F3)  
+3. Composite Scoring Layer (CERI v2 baseline)  
+4. Optimization & Robustness Layer (CERI v3)  
+5. Deployment Tier Logic Layer (CERI v4)  
 
 Environmental exposure currently functions as the first validated signal module.
-
-Future development may explore:
-
-- Tier automation logic  
-- Multi-signal feature expansion  
-- Automated asset ingestion  
-- Portfolio-scale benchmarking  
-- Modular satellite-based exposure scoring architecture  
 
 ---
 
 ## Repository Structure
 
-- `notes/` — Conceptual documentation, case studies, and governance specifications  
+- `notes/` — Conceptual documentation, case studies, governance, and deployment logic  
 - `experiments/` — GEE extraction scripts and Python modeling notebooks  
 - `assets/` — Generated CSV feature layers and plots  
 - `references/` — Supporting datasets and literature  
@@ -197,8 +214,9 @@ Covered assets:
 - Bingham Canyon (USA)  
 - Grasberg (Indonesia)  
 
-CERI v2 outputs are versioned and not manually altered post-export.  
-CERI v3 operates exclusively on the frozen v2 feature layer.
+CERI v2 outputs are versioned and frozen.  
+CERI v3 operates exclusively on the frozen v2 feature layer.  
+CERI v4 applies deterministic tier logic without refitting models.
 
 ---
 
@@ -208,7 +226,8 @@ This repository represents:
 
 - A structured geospatial modeling system  
 - A versioned environmental exposure scoring framework  
-- A governed, optimization-validated composite scoring model  
+- A governance-validated composite model  
+- A deployment-ready risk classification layer  
 - A modular foundation for scalable risk analytics  
 
 The emphasis is on:
@@ -217,6 +236,7 @@ The emphasis is on:
 - Geometric interpretability  
 - Robustness testing  
 - Governance discipline  
+- Deterministic deployment logic  
 - Version-controlled evolution  
 
 Development proceeds in deliberate, documented stages rather than ad hoc experimentation.
