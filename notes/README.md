@@ -9,7 +9,7 @@ The purpose of these notes is to:
 - Document methodological refinement  
 - Interpret analytical results  
 - Formalize cross-asset exposure scoring logic  
-- Establish governance and robustness validation  
+- Establish governance, robustness validation, and deployment rules  
 
 Each document captures a distinct milestone in the development of the Satellite-Based Exposure Scoring Framework.
 
@@ -85,14 +85,17 @@ Supporting notebook: `experiments/python/comparative_analysis.ipynb`
 The Corporate Environmental Risk Index (CERI) formalizes cross-asset exposure comparison.
 
 ### Architecture & Design
-- `ceri-architecture.md` — Feature definitions (F1, F2, F3) and scoring logic.  
+- `ceri-architecture.md` — Feature definitions (F1, F2, F3) and composite scoring logic.  
 - `phase-4-summary.md` — Portfolio-level scoring implementation (CERI v1 → v2).  
 
-### Governance & Optimization
-- `ceri-governance-decision.md` — Baseline vs optimized weight evaluation and decision rationale.  
+### Optimization & Governance
 - `ceri-v3-weight-optimization.md` — Silhouette-based weight optimization and ranking stability analysis.  
+- `ceri-governance-decision.md` — Baseline vs optimized weight evaluation and governance rationale.  
 
-This phase introduced:
+### Deployment Layer
+- `ceri-v4-deployment.md` — Deterministic tier assignment and confidence scoring logic.  
+
+This progression introduced:
 
 - Standardized feature engineering  
 - Composite score formulation  
@@ -100,9 +103,12 @@ This phase introduced:
 - Weight sensitivity analysis  
 - Silhouette-based optimization  
 - Formal governance decision  
+- Threshold-based deployment tier logic  
+- Margin-based confidence scoring  
 
-CERI v2 remains the official baseline scoring configuration.  
-CERI v3 serves as a validated optimization experiment.
+CERI v2 remains the official scoring baseline.  
+CERI v3 serves as analytical validation.  
+CERI v4 defines deterministic operational classification.
 
 ---
 
@@ -116,14 +122,15 @@ The repository has progressed through:
 4. Cross-site generalization  
 5. Portfolio expansion  
 6. Cross-asset risk scoring (CERI v1 → v2)  
-7. Weight optimization & governance validation (CERI v3)
+7. Weight optimization & governance validation (CERI v3)  
+8. Deployment tier logic & confidence scoring (CERI v4)
 
-The next phase will focus on:
+Future development may focus on:
 
-- Deployment logic refinement  
-- Tier automation  
-- Expanded signal integration  
-- Incremental scoring framework improvements  
-- Scalable portfolio benchmarking  
+- Automated ingestion of new assets  
+- Multi-signal feature expansion  
+- Tier confidence calibration  
+- Portfolio-scale benchmarking  
+- Incremental framework refinement  
 
 The emphasis remains on controlled, versioned evolution rather than ad hoc expansion.
