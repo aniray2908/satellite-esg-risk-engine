@@ -1,6 +1,6 @@
 # Experiments
 
-This directory contains reproducible analytical scripts used during:
+This directory contains reproducible analytical scripts and notebooks used during:
 
 - Signal extraction  
 - Metric validation  
@@ -8,6 +8,7 @@ This directory contains reproducible analytical scripts used during:
 - Portfolio expansion  
 - Risk modeling (CERI framework)  
 - Weight optimization & governance validation  
+- Deployment tier logic implementation  
 
 ---
 
@@ -37,7 +38,7 @@ Each GEE script:
   - Low NDVI Fraction (NDVI < 0.2)  
 - Exports reproducible CSV tables  
 
-These scripts form the deterministic extraction layer
+These scripts form the deterministic satellite extraction layer
 that feeds all downstream modeling.
 
 ---
@@ -66,7 +67,7 @@ These notebooks generate:
 
 Outputs are stored in:
 
-assets/plots/
+`assets/plots/`
 
 ---
 
@@ -96,11 +97,11 @@ Two-asset prototype model (Carajás + Gevra).
 
 Includes:
 
-- Feature engineering (F1, F2, F3)
-- Min-max normalization
-- Z-score normalization
-- Weighted composite scoring
-- Illustrative clustering
+- Feature engineering (F1, F2, F3)  
+- Min-max normalization  
+- Z-score normalization  
+- Weighted composite scoring  
+- Illustrative clustering  
 
 Represents initial composite framework validation.
 
@@ -110,27 +111,27 @@ Represents initial composite framework validation.
 
 Four-asset portfolio model:
 
-- Carajás
-- Gevra
-- Bingham Canyon
-- Grasberg
+- Carajás  
+- Gevra  
+- Bingham Canyon  
+- Grasberg  
 
 Includes:
 
-- Portfolio-level feature engineering
-- Z-score normalization
-- Composite risk scoring (CERI_z)
-- KMeans clustering
-- Silhouette score evaluation
-- Tier segmentation
-- Weight sensitivity analysis
-- Feature space geometry analysis
+- Portfolio-level feature engineering  
+- Z-score normalization  
+- Composite risk scoring (CERI_z)  
+- KMeans clustering (k=2, k=3)  
+- Silhouette score evaluation  
+- Tier segmentation  
+- Weight sensitivity analysis  
+- Feature space geometry analysis  
 
 CERI v2 is treated as the governance-stable baseline model.
 
 Final feature layer exported to:
 
-assets/data/ceri_v2_feature_layer.csv
+`assets/data/ceri_v2_feature_layer.csv`
 
 ---
 
@@ -138,28 +139,45 @@ assets/data/ceri_v2_feature_layer.csv
 
 Data-driven weight optimization model.
 
-Builds on frozen CERI v2 feature layer and:
+Builds on the frozen CERI v2 feature layer and:
 
-- Performs structured weight grid search
-- Optimizes weights via silhouette maximization (k = 3)
-- Compares CERI_v2 vs optimized CERI_v3 rankings
-- Quantifies ranking shift magnitude
-- Computes Spearman & Kendall stability metrics
-- Documents governance decision
+- Performs structured weight grid search  
+- Optimizes weights via silhouette maximization (k = 3)  
+- Compares CERI_v2 vs optimized CERI_v3 rankings  
+- Quantifies ranking shift magnitude  
+- Computes Spearman & Kendall stability metrics  
+- Documents governance decision  
 
 CERI v3 functions as:
 
-- Analytical validation layer
-- Robustness demonstration
-- Optimization experiment
+- Analytical validation layer  
+- Robustness demonstration  
+- Optimization experiment  
 
-CERI v2 remains official scoring baseline.
+CERI v2 remains the official scoring baseline.
+
+---
+
+### `ceri_v4_deployment_logic.ipynb`
+
+Deployment-ready tier classification model.
+
+Builds on frozen CERI v2 scores and:
+
+- Applies deterministic Z-score thresholds  
+- Assigns High / Moderate / Low risk tiers  
+- Computes confidence margins  
+- Labels confidence bands (High / Medium / Low)  
+- Produces structured deployment output table  
+
+CERI v4 converts validated composite scoring into a stable,
+production-style risk classification layer.
 
 ---
 
 ## Reproducibility
 
-All metrics, scores, and plots are fully reproducible by:
+All metrics, scores, tiers, and plots are fully reproducible by:
 
 1. Running the corresponding GEE extraction script  
 2. Exporting the CSV file  
@@ -167,4 +185,5 @@ All metrics, scores, and plots are fully reproducible by:
 
 The modeling layer consumes exported CSV files directly.
 
-No manual adjustments are applied to exported data.
+No manual adjustments are applied to exported data.  
+Version progression (v2 → v3 → v4) operates strictly on frozen upstream outputs.
