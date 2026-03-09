@@ -108,6 +108,24 @@ This stage confirms that:
 
 This provides empirical evidence that the scoring framework behaves as a **stable comparative exposure signal rather than a fragile point estimate.**
 
+### Predictive Modeling Layer
+- `ceri_v6_predictive_modeling.md` — Supervised learning evaluation of engineered exposure features.
+
+This stage introduces machine learning models to test whether the engineered exposure signals can reconstruct the composite exposure score.
+
+Models implemented include:
+
+- Linear Regression (baseline reconstruction model)
+- Random Forest Regression (nonlinear model with feature importance)
+
+Evaluation uses **Leave-One-Out Cross Validation (LOOCV)** due to the small portfolio size.
+
+This stage demonstrates that:
+
+- exposure features contain meaningful predictive structure
+- composite scoring is consistent with supervised modeling frameworks
+- engineered environmental signals can serve as inputs for machine learning systems
+
 ---
 
 ## Framework Evolution
@@ -143,8 +161,15 @@ The scoring framework progressed through several structured stages:
 - Score distribution analysis  
 - Ranking robustness confirmation  
 
+**CERI v6 — Predictive Modeling**
+
+- Supervised learning evaluation of exposure features  
+- Leave-One-Out Cross Validation  
+- Model comparison (Linear Regression vs Random Forest)  
+- Feature importance interpretation  
+
 CERI v2 remains the official scoring baseline.  
-Later versions extend validation and operational interpretation of the framework.
+Later versions extend validation, interpretability, and modeling compatibility of the framework.
 
 ---
 
@@ -160,7 +185,8 @@ The repository has progressed through:
 6. Cross-asset risk scoring (CERI v1 → v2)  
 7. Weight optimization & governance validation (CERI v3)  
 8. Deployment tier logic & confidence scoring (CERI v4)  
-9. Bootstrap stability validation (CERI v5)
+9. Bootstrap stability validation (CERI v5)  
+10. Predictive modeling validation (CERI v6)
 
 Future development may focus on:
 
