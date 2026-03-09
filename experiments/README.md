@@ -9,6 +9,7 @@ This directory contains reproducible analytical scripts and notebooks used durin
 - Risk modeling (CERI framework)  
 - Weight optimization & governance validation  
 - Deployment tier logic implementation  
+- Model robustness validation  
 
 ---
 
@@ -175,6 +176,25 @@ production-style risk classification layer.
 
 ---
 
+### `ceri_v5_bootstrap_stability.ipynb`
+
+Bootstrap-based robustness validation of the exposure scoring system.
+
+This notebook evaluates how sensitive composite exposure scores are
+to temporal variation in the underlying data.
+
+The analysis:
+
+- Resamples yearly observations using bootstrap simulation  
+- Generates score distributions across 1000 iterations  
+- Evaluates score variance and ranking stability  
+- Confirms tier classification robustness  
+
+Bootstrap testing provides statistical evidence that the
+CERI scoring framework is **stable under moderate data perturbations**.
+
+---
+
 ## Reproducibility
 
 All metrics, scores, tiers, and plots are fully reproducible by:
@@ -186,4 +206,4 @@ All metrics, scores, tiers, and plots are fully reproducible by:
 The modeling layer consumes exported CSV files directly.
 
 No manual adjustments are applied to exported data.  
-Version progression (v2 → v3 → v4) operates strictly on frozen upstream outputs.
+Version progression (v2 → v3 → v4 → v5) operates strictly on frozen upstream outputs.
