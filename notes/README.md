@@ -95,20 +95,56 @@ The Corporate Environmental Risk Index (CERI) formalizes cross-asset exposure co
 ### Deployment Layer
 - `ceri-v4-deployment.md` — Deterministic tier assignment and confidence scoring logic.  
 
-This progression introduced:
+### Robustness Validation
+- `ceri_v5_bootstrap_stability.md` — Bootstrap-based stability testing of composite scores and asset rankings.
 
-- Standardized feature engineering  
-- Composite score formulation  
-- Unsupervised clustering validation  
-- Weight sensitivity analysis  
-- Silhouette-based optimization  
-- Formal governance decision  
-- Threshold-based deployment tier logic  
+Bootstrap analysis evaluates how sensitive exposure scores are to temporal variation in the underlying observations.
+
+This stage confirms that:
+
+- asset ranking remains stable under simulated resampling  
+- tier assignments remain structurally consistent  
+- exposure score variability remains small relative to tier thresholds  
+
+This provides empirical evidence that the scoring framework behaves as a **stable comparative exposure signal rather than a fragile point estimate.**
+
+---
+
+## Framework Evolution
+
+The scoring framework progressed through several structured stages:
+
+**CERI v1 — Prototype Model**
+
+- Two-asset proof of concept  
+- Initial feature engineering and composite scoring  
+
+**CERI v2 — Portfolio Baseline**
+
+- Four-asset exposure scoring model  
+- Z-score normalization  
+- Composite exposure score (CERI_z)  
+- Clustering validation and feature space analysis  
+
+**CERI v3 — Weight Optimization**
+
+- Silhouette-based weight search  
+- Ranking stability analysis  
+- Governance evaluation of optimized weights  
+
+**CERI v4 — Deployment Layer**
+
+- Deterministic tier thresholds  
 - Margin-based confidence scoring  
 
+**CERI v5 — Robustness Validation**
+
+- Bootstrap stability testing  
+- Score distribution analysis  
+- Ranking robustness confirmation  
+
 CERI v2 remains the official scoring baseline.  
-CERI v3 serves as analytical validation.  
-CERI v4 defines deterministic operational classification.
+Later versions extend validation and operational interpretation of the framework.
 
 ---
 
@@ -123,14 +159,15 @@ The repository has progressed through:
 5. Portfolio expansion  
 6. Cross-asset risk scoring (CERI v1 → v2)  
 7. Weight optimization & governance validation (CERI v3)  
-8. Deployment tier logic & confidence scoring (CERI v4)
+8. Deployment tier logic & confidence scoring (CERI v4)  
+9. Bootstrap stability validation (CERI v5)
 
 Future development may focus on:
 
-- Automated ingestion of new assets  
-- Multi-signal feature expansion  
-- Tier confidence calibration  
-- Portfolio-scale benchmarking  
-- Incremental framework refinement  
+- automated ingestion of new assets  
+- multi-signal feature expansion  
+- tier confidence calibration  
+- portfolio-scale benchmarking  
+- incremental framework refinement  
 
 The emphasis remains on controlled, versioned evolution rather than ad hoc expansion.
