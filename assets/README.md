@@ -13,13 +13,13 @@ All artifacts are reproducible via scripts and notebooks located in:
 ---
 
 # Directory Structure
-assets/
-│
-├── data/
-│ Satellite extraction outputs and modeling feature layers
-│
-└── plots/
-Visualization outputs generated during exploratory analysis
+assets/\
+│\
+├── data/\
+│ Satellite extraction outputs and modeling feature layers\
+│\
+└── plots/\
+| Visualization outputs generated during exploratory analysis
 and model interpretation
 
 ---
