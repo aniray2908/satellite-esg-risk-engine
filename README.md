@@ -254,6 +254,29 @@ See:
 
 ---
 
+### Phase 8 — Predictive Modeling Validation (CERI v6)
+
+CERI v6 evaluates whether engineered exposure features can predict the composite exposure score using supervised machine learning models.
+
+Models implemented:
+- Linear Regression
+- Random Forest Regression
+
+Evaluation approach:
+- Leave-One-Out Cross Validation (LOOCV)
+- RMSE comparison across models
+- feature importance analysis
+
+Results indicate that the engineered exposure features contain meaningful predictive structure, confirming that the environmental signal extracted from satellite data is compatible with machine learning modeling frameworks.
+
+This stage demonstrates that the exposure scoring system can function as a structured feature layer for downstream predictive models.
+
+See:
+- `notes/ceri_v6_predictive_modeling.md`
+- `experiments/python/ceri/ceri_v6_predictive_modeling.ipynb`
+  
+---
+
 # Repository Structure
 
 - `notes/` — Conceptual documentation, case studies, governance, and deployment logic  
@@ -282,27 +305,26 @@ CERI v2 outputs are versioned and frozen.
 CERI v3 operates exclusively on the frozen v2 feature layer.  
 CERI v4 applies deterministic tier logic without refitting models.  
 CERI v5 evaluates statistical stability using bootstrap resampling.
+CERI v6 evaluates predictive structure via supervised machine learning.
 
 ---
 
 # Project Positioning
 
 This repository represents:
-
-- A structured geospatial modeling system  
-- A versioned environmental exposure scoring framework  
-- A governance-validated composite model  
-- A deployment-ready risk classification layer  
-- A statistically validated exposure scoring system  
-- A modular foundation for scalable risk analytics  
+- a structured geospatial modeling system
+- a versioned environmental exposure scoring framework
+- a governance-validated composite model
+- a deployment-ready risk classification layer
+- a statistically validated exposure scoring system
+- a machine-learning compatible feature engineering pipeline
 
 The emphasis is on:
-
-- Statistical rigor  
-- Geometric interpretability  
-- Robustness testing  
-- Governance discipline  
-- Deterministic deployment logic  
-- Version-controlled evolution  
+- statistical rigor
+- geometric interpretability
+- robustness testing
+- governance discipline
+- deterministic deployment logic
+- version-controlled model evolution
 
 Development proceeds in deliberate, documented stages rather than ad hoc experimentation.
