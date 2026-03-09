@@ -16,12 +16,12 @@ located in the `experiments/` directory.
 
 # Directory Structure
 
-assets/
-│
-├── data/
-│   ├── raw/
-│   └── processed/
-│
+assets/\
+│\
+├── data/\
+│   ├── raw/\
+│   └── processed/\
+│\
 └── plots/
 
 ---
