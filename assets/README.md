@@ -18,7 +18,7 @@ assets/\
 ├── data/\
 │ Satellite extraction outputs and modeling feature layers\
 │\
-└── plots/\
+├──plots/\
 | Visualization outputs generated during exploratory analysis
 and model interpretation
 
