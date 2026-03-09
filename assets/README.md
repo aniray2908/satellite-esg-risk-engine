@@ -3,47 +3,45 @@
 This directory contains all non-code artifacts generated throughout the
 Satellite-Based Exposure Scoring Framework.
 
-These files represent the **data outputs and visualizations** produced by the
-satellite extraction pipeline and downstream modeling layers.
+These artifacts include:
 
-All artifacts are reproducible via scripts and notebooks located in:
+- Satellite-derived datasets
+- Feature-engineered modeling layers
+- Visualization outputs
 
-`experiments/`
+All files stored here are **generated outputs** from scripts and notebooks
+located in the `experiments/` directory.
 
 ---
 
 # Directory Structure
-assets/\
-│\
-├── data/\
-│ Satellite extraction outputs and modeling feature layers\
-│\
-├──plots/\
-| Visualization outputs generated during exploratory analysis
-and model interpretation
+
+assets/
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+└── plots/
 
 ---
 
 # data/
 
-This directory stores **CSV datasets generated during the pipeline**.
+This directory stores datasets produced during the pipeline.
 
-These files form the bridge between:
+The data layer is divided into two stages:
 
-Satellite extraction (GEE)  
-→ Feature engineering  
-→ Composite scoring  
-→ Model validation
-
-All datasets are **machine-generated and versioned**.
+- **raw/** — direct outputs from satellite extraction
+- **processed/** — engineered datasets used in modeling
 
 ---
 
-## Satellite Extraction Outputs
+## raw/
 
-Exported directly from **Google Earth Engine** scripts.
+These datasets are exported directly from **Google Earth Engine (GEE)**.
 
-Each dataset contains yearly exposure metrics extracted from
+Each file contains yearly vegetation exposure metrics extracted from
 Sentinel-2 imagery.
 
 Metrics include:
@@ -56,64 +54,65 @@ Metrics include:
 ### Available Assets
 
 **Carajás Mine (Brazil)**  
-- `carajas_pit_centered_full_year_v2_1.csv`
+`carajas_pit_centered_full_year_v2_1.csv`
 
 **Gevra Coal Mine (India)**  
-- `gevra_pit_centered_full_year_v1.csv`
+`gevra_pit_centered_full_year_v1.csv`
 
 **Bingham Canyon Mine (USA)**  
-- `bingham_pit_centered_full_year_v1.csv`
+`bingham_pit_centered_full_year_v1.csv`
 
 **Grasberg Mine (Indonesia)**  
-- `grasberg_pit_centered_full_year_v1.csv`
+`grasberg_pit_centered_full_year_v1.csv`
 
-Each dataset represents **multi-year satellite observations (2019–2023)**
-within a **1 km pit-centered buffer** around the mining asset.
+These datasets represent **multi-year satellite observations (2019–2023)**
+within a **1 km pit-centered buffer** around each mining asset.
+
+They serve as the **input layer for downstream feature engineering and modeling**.
 
 ---
 
-## Feature Engineering Layer
+## processed/
 
-The downstream modeling pipeline aggregates the satellite outputs
-into structured exposure features.
+These datasets represent **feature-engineered layers used in the CERI framework**.
 
 ### `ceri_v2_feature_layer.csv`
 
-This dataset contains the **engineered feature layer used in the CERI framework**.
+This dataset contains the aggregated exposure features used for
+portfolio-level modeling.
 
-Features include:
+Engineered features include:
 
 - `F1_exposure_intensity`
 - `F2_vegetation_suppression`
 - `F3_persistence_raw`
 - `CERI_z` (composite exposure score)
 
-This dataset serves as the **frozen baseline input for all downstream models**:
+This feature layer serves as the **frozen baseline dataset** used in:
 
 - CERI v3 — weight optimization
-- CERI v4 — deployment tier logic
-- CERI v5 — bootstrap stability testing
-- CERI v6 — predictive modeling validation
+- CERI v4 — deployment tier classification
+- CERI v5 — bootstrap stability validation
+- CERI v6 — predictive modeling experiments
 
-No manual modifications are applied after export.
+Once generated, this dataset is **not manually modified** to ensure
+reproducibility across modeling stages.
 
 ---
 
 # plots/
 
-This directory contains visualizations generated during exploratory
-analysis and validation.
+This directory contains visualization outputs generated during analysis.
 
-All plots are reproducible via the notebooks located in:
+Plots are produced by notebooks located in:
 
 `experiments/python/`
 
 ---
 
-## Site-Level Trends
+## Site-Level Visualizations
 
-These plots illustrate the **temporal behavior of vegetation exposure**
-for each mining asset.
+Temporal vegetation exposure trends for each mining asset.
 
 ### Carajás
 
@@ -135,179 +134,40 @@ for each mining asset.
 - `grasberg_mean_ndvi.png`
 - `grasberg_low_ndvi_fraction.png`
 
-These figures visualize:
+These plots visualize:
 
 - vegetation suppression
-- exposure stability
-- multi-year signal persistence
+- exposed land fraction
+- multi-year environmental stability
 
 ---
 
-## Cross-Asset Comparison
+## Cross-Asset Comparisons
 
-Comparative plots highlight structural differences between mining assets.
+Comparative plots used for portfolio-level interpretation.
 
 Examples:
 
 - `comparison_mean_ndvi.png`
 - `comparison_low_ndvi_fraction.png`
 
-These visualizations support the transition from **site-level analysis**
-to **portfolio-level exposure scoring**.
+These figures highlight structural differences between mining assets
+and support cross-site exposure scoring.
 
 ---
 
 # Reproducibility
 
-All artifacts stored in this directory are generated via reproducible
-pipelines located in:
+All artifacts in this directory are fully reproducible via scripts
+located in:
 
----
-
-# data/
-
-This directory stores **CSV datasets generated during the pipeline**.
-
-These files form the bridge between:
-
-Satellite extraction (GEE)  
-→ Feature engineering  
-→ Composite scoring  
-→ Model validation
-
-All datasets are **machine-generated and versioned**.
-
----
-
-## Satellite Extraction Outputs
-
-Exported directly from **Google Earth Engine** scripts.
-
-Each dataset contains yearly exposure metrics extracted from
-Sentinel-2 imagery.
-
-Metrics include:
-
-- `mean_ndvi`
-- `low_ndvi_fraction`
-- `image_count`
-- `year`
-
-### Available Assets
-
-**Carajás Mine (Brazil)**  
-- `carajas_pit_centered_full_year_v2_1.csv`
-
-**Gevra Coal Mine (India)**  
-- `gevra_pit_centered_full_year_v1.csv`
-
-**Bingham Canyon Mine (USA)**  
-- `bingham_pit_centered_full_year_v1.csv`
-
-**Grasberg Mine (Indonesia)**  
-- `grasberg_pit_centered_full_year_v1.csv`
-
-Each dataset represents **multi-year satellite observations (2019–2023)**
-within a **1 km pit-centered buffer** around the mining asset.
-
----
-
-## Feature Engineering Layer
-
-The downstream modeling pipeline aggregates the satellite outputs
-into structured exposure features.
-
-### `ceri_v2_feature_layer.csv`
-
-This dataset contains the **engineered feature layer used in the CERI framework**.
-
-Features include:
-
-- `F1_exposure_intensity`
-- `F2_vegetation_suppression`
-- `F3_persistence_raw`
-- `CERI_z` (composite exposure score)
-
-This dataset serves as the **frozen baseline input for all downstream models**:
-
-- CERI v3 — weight optimization
-- CERI v4 — deployment tier logic
-- CERI v5 — bootstrap stability testing
-- CERI v6 — predictive modeling validation
-
-No manual modifications are applied after export.
-
----
-
-# plots/
-
-This directory contains visualizations generated during exploratory
-analysis and validation.
-
-All plots are reproducible via the notebooks located in:
-
-`experiments/python/`
-
----
-
-## Site-Level Trends
-
-These plots illustrate the **temporal behavior of vegetation exposure**
-for each mining asset.
-
-### Carajás
-
-- `carajas_mean_ndvi.png`
-- `carajas_low_ndvi_fraction.png`
-
-### Gevra
-
-- `gevra_mean_ndvi.png`
-- `gevra_low_ndvi_fraction.png`
-
-### Bingham Canyon
-
-- `bingham_mean_ndvi.png`
-- `bingham_low_ndvi_fraction.png`
-
-### Grasberg
-
-- `grasberg_mean_ndvi.png`
-- `grasberg_low_ndvi_fraction.png`
-
-These figures visualize:
-
-- vegetation suppression
-- exposure stability
-- multi-year signal persistence
-
----
-
-## Cross-Asset Comparison
-
-Comparative plots highlight structural differences between mining assets.
-
-Examples:
-
-- `comparison_mean_ndvi.png`
-- `comparison_low_ndvi_fraction.png`
-
-These visualizations support the transition from **site-level analysis**
-to **portfolio-level exposure scoring**.
-
----
-
-# Reproducibility
-
-All artifacts stored in this directory are generated via reproducible
-pipelines located in:
-experiments/
+`experiments/`
 
 Reproduction workflow:
 
 1. Run the appropriate **Google Earth Engine extraction script**
-2. Export the resulting CSV file
-3. Run the corresponding **Python notebook**
+2. Export the CSV file
+3. Run the associated **Python notebook**
 4. Regenerate plots and feature layers
 
 No manual adjustments are applied to exported datasets.
@@ -316,16 +176,14 @@ No manual adjustments are applied to exported datasets.
 
 # Role in the Framework
 
-The `assets/` directory represents the **data backbone** of the
-Satellite-Based Exposure Scoring Framework.
+The `assets/` directory functions as the **data backbone of the project**.
 
 It provides:
 
-- Satellite-derived exposure observations
-- Feature engineering inputs
-- Visualization outputs
-- Versioned datasets for modeling experiments
+- satellite-derived exposure observations
+- feature-engineered modeling datasets
+- visualization artifacts used for interpretation
 
 These artifacts connect the **geospatial extraction layer**
 with the **statistical modeling and machine learning layers**
-of the project.
+of the exposure scoring framework.
