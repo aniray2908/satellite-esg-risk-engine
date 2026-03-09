@@ -1,7 +1,7 @@
 # Satellite-Based Exposure Scoring Framework  
 ### Multi-Spectral Mining Exposure Quantification & Cross-Asset Risk Scoring
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
-![Version](https://img.shields.io/badge/version-v5.0%20validated-blue)
+![Version](https://img.shields.io/badge/version-v6.0%20validated-blue)
 ![Data](https://img.shields.io/badge/data-Sentinel--2-lightgrey)
 ![Reproducible](https://img.shields.io/badge/reproducible-yes-success)
 
@@ -17,11 +17,12 @@ The framework:
 - Computes vegetation exposure indicators (NDVI-based metrics)  
 - Tracks multi-year environmental stability  
 - Quantifies sustained industrial land exposure  
-- Formalizes a Corporate Environmental Risk Index (CERI)  
+- Formalizes a **Corporate Environmental Risk Index (CERI)**  
 - Converts composite scores into deterministic deployment-ready risk tiers  
 - Validates score robustness through statistical resampling  
+- Evaluates feature predictability using supervised machine learning  
 
-The project has evolved from signal validation to portfolio-level modeling, optimization, governance validation, deployment-tier logic, and statistical robustness testing.
+The project has evolved from signal extraction to portfolio-level modeling, optimization, governance validation, deployment-tier logic, statistical robustness testing, and predictive modeling validation.
 
 This work sits at the intersection of:
 
@@ -35,7 +36,7 @@ This work sits at the intersection of:
 
 # System Pipeline
 
-The framework transforms raw satellite imagery into a structured exposure scoring system through several stages:
+The framework transforms raw satellite imagery into a structured exposure scoring system through several stages.
 
 ```mermaid
 flowchart TD
@@ -56,10 +57,12 @@ G --> H[Model Validation Layers]
 H --> I[Weight Optimization<br>CERI v3]
 H --> J[Deployment Tier Logic<br>CERI v4]
 H --> K[Bootstrap Stability Testing<br>CERI v5]
+H --> M[Predictive Modeling Validation<br>CERI v6]
 
 I --> L[Final Exposure Scoring Framework]
 J --> L
 K --> L
+M --> L
 ```
 
 ### Pipeline Interpretation
