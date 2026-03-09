@@ -1,7 +1,7 @@
 # Satellite-Based Exposure Scoring Framework  
 ### Multi-Spectral Mining Exposure Quantification & Cross-Asset Risk Scoring
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
-![Version](https://img.shields.io/badge/version-v4.0%20deployment-blue)
+![Version](https://img.shields.io/badge/version-v5.0%20validated-blue)
 ![Data](https://img.shields.io/badge/data-Sentinel--2-lightgrey)
 ![Reproducible](https://img.shields.io/badge/reproducible-yes-success)
 
@@ -19,8 +19,9 @@ The framework:
 - Quantifies sustained industrial land exposure  
 - Formalizes a Corporate Environmental Risk Index (CERI)  
 - Converts composite scores into deterministic deployment-ready risk tiers  
+- Validates score robustness through statistical resampling
 
-The project has evolved from signal validation to portfolio-level modeling, optimization, governance validation, and operational tier logic.
+The project has evolved from signal validation to portfolio-level modeling, optimization, governance validation, deployment-tier logic, and statistical robustness testing.
 
 This work sits at the intersection of:
 
@@ -44,11 +45,11 @@ Satellite data enables:
 
 This project evaluates whether satellite-derived vegetation exposure metrics can serve as structured, comparable proxies for industrial environmental risk.
 
-Portfolio-level validation, clustering analysis, weight optimization, and deployment-tier logic have been implemented to assess structural robustness and operational readiness.
+Portfolio-level validation, clustering analysis, weight optimization, deployment-tier logic, and bootstrap stability testing have been implemented to assess structural robustness and operational readiness.
 
 ---
 
-## Development Progression
+# Development Progression
 
 ### Phase 0 — Conceptual Grounding
 - GIS fundamentals consolidated  
@@ -90,6 +91,7 @@ See: `notes/case-study-carajas.md`
 - Cross-site comparative analysis  
 
 See:
+
 - `notes/case-study-gevra.md`  
 - `experiments/python/comparative_analysis.ipynb`
 
@@ -108,6 +110,7 @@ Portfolio spans four geographically diverse mining operations.
 Two-asset prototype demonstrating feature design and composite scoring.
 
 #### CERI v2 (Governance Baseline)  
+
 Four-asset portfolio model featuring:
 
 - Standardized feature engineering (F1, F2, F3)  
@@ -141,7 +144,7 @@ Key findings:
 - Optimization improves geometric separation  
 - Extreme-tier assets remain stable  
 - Moderate-tier ordering shifts under heavy stability weighting  
-- Ranking stability remains strong (Spearman ≈ 0.80)  
+- Ranking stability remains strong (Spearman ≈ 0.80)
 
 Governance Decision:
 
@@ -149,6 +152,7 @@ CERI v2 retained as baseline.
 CERI v3 serves as analytical validation layer.
 
 See:
+
 - `notes/ceri-v3-weight-optimization.md`  
 - `notes/ceri-governance-decision.md`
 
@@ -171,26 +175,57 @@ No clustering dependency at deployment stage.
 CERI v4 converts validated composite scoring into a stable, production-style risk classification layer.
 
 See:
+
 - `notes/ceri-v4-deployment.md`  
 - `experiments/python/ceri/ceri_v4_deployment_logic.ipynb`
 
 ---
 
-## System Architecture
+### Phase 7 — Bootstrap Stability Validation (CERI v5)
+
+CERI v5 evaluates score robustness under simulated temporal variation.
+
+The analysis performs bootstrap resampling across the available yearly observations.
+
+Includes:
+
+- 1000 bootstrap simulations  
+- Score distribution analysis  
+- Ranking robustness evaluation  
+- Tier classification stability assessment  
+
+Key findings:
+
+- Exposure scores remain tightly distributed  
+- Cross-asset ranking remains structurally stable  
+- Tier assignments remain consistent under resampling  
+- Only boundary assets show moderate score variance
+
+Bootstrap validation confirms that the exposure scoring framework behaves as a **stable comparative signal rather than a fragile point estimate.**
+
+See:
+
+- `notes/ceri_v5_bootstrap_stability.md`  
+- `experiments/python/ceri/ceri_v5_bootstrap_stability.ipynb`
+
+---
+
+# System Architecture
 
 The framework now consists of:
 
-1. Satellite Extraction Layer (GEE scripts)  
-2. Feature Engineering Layer (F1, F2, F3)  
-3. Composite Scoring Layer (CERI v2 baseline)  
-4. Optimization & Robustness Layer (CERI v3)  
-5. Deployment Tier Logic Layer (CERI v4)  
+1. **Satellite Extraction Layer** (Google Earth Engine)  
+2. **Feature Engineering Layer** (F1, F2, F3)  
+3. **Composite Scoring Layer** (CERI v2 baseline)  
+4. **Optimization & Governance Layer** (CERI v3)  
+5. **Deployment Tier Logic Layer** (CERI v4)  
+6. **Statistical Robustness Layer** (CERI v5)
 
 Environmental exposure currently functions as the first validated signal module.
 
 ---
 
-## Repository Structure
+# Repository Structure
 
 - `notes/` — Conceptual documentation, case studies, governance, and deployment logic  
 - `experiments/` — GEE extraction scripts and Python modeling notebooks  
@@ -199,7 +234,7 @@ Environmental exposure currently functions as the first validated signal module.
 
 ---
 
-## Reproducibility
+# Reproducibility
 
 All outputs are reproducible via:
 
@@ -212,15 +247,16 @@ Covered assets:
 - Carajás (Brazil)  
 - Gevra (India)  
 - Bingham Canyon (USA)  
-- Grasberg (Indonesia)  
+- Grasberg (Indonesia)
 
 CERI v2 outputs are versioned and frozen.  
 CERI v3 operates exclusively on the frozen v2 feature layer.  
-CERI v4 applies deterministic tier logic without refitting models.
+CERI v4 applies deterministic tier logic without refitting models.  
+CERI v5 evaluates statistical stability using bootstrap resampling.
 
 ---
 
-## Project Positioning
+# Project Positioning
 
 This repository represents:
 
@@ -228,6 +264,7 @@ This repository represents:
 - A versioned environmental exposure scoring framework  
 - A governance-validated composite model  
 - A deployment-ready risk classification layer  
+- A statistically validated exposure scoring system  
 - A modular foundation for scalable risk analytics  
 
 The emphasis is on:
