@@ -10,6 +10,7 @@ This directory contains reproducible analytical scripts and notebooks used durin
 - Weight optimization & governance validation  
 - Deployment tier logic implementation  
 - Model robustness validation  
+- Predictive modeling validation  
 
 ---
 
@@ -195,6 +196,34 @@ CERI scoring framework is **stable under moderate data perturbations**.
 
 ---
 
+### `ceri_v6_predictive_modeling.ipynb`
+
+Supervised machine learning evaluation of the engineered exposure features.
+
+This notebook investigates whether the exposure features used in the
+CERI scoring framework contain sufficient predictive structure to
+reconstruct the composite exposure score.
+
+Models evaluated include:
+
+- Linear Regression (baseline reconstruction model)
+- Random Forest Regression (nonlinear model)
+
+Evaluation methodology:
+
+- Leave-One-Out Cross Validation (LOOCV) due to small portfolio size
+- RMSE comparison across models
+- Feature importance analysis from Random Forest
+
+The goal of this stage is not to replace the composite scoring system,
+but to demonstrate that the engineered exposure features behave
+consistently within a supervised learning framework.
+
+This validates that the environmental signal extracted from satellite
+data can function as a **machine learning–compatible feature layer**.
+
+---
+
 ## Reproducibility
 
 All metrics, scores, tiers, and plots are fully reproducible by:
@@ -206,4 +235,4 @@ All metrics, scores, tiers, and plots are fully reproducible by:
 The modeling layer consumes exported CSV files directly.
 
 No manual adjustments are applied to exported data.  
-Version progression (v2 → v3 → v4 → v5) operates strictly on frozen upstream outputs.
+Version progression (v2 → v3 → v4 → v5 → v6) operates strictly on frozen upstream outputs.
