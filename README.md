@@ -64,6 +64,7 @@ J --> L
 K --> L
 M --> L
 ```
+---
 
 ### Pipeline Interpretation
 
@@ -83,7 +84,7 @@ Each stage is implemented as a reproducible computational step within the reposi
 
 ---
 
-## Motivation
+# Motivation
 
 Corporate ESG disclosures are largely self-reported and episodically verified.
 
@@ -102,6 +103,7 @@ Portfolio-level validation, clustering analysis, weight optimization, deployment
 # Development Progression
 
 ### Phase 0 — Conceptual Grounding
+
 - GIS fundamentals consolidated  
 - Raster vs vector clarified  
 - NDVI spectral logic validated  
@@ -110,6 +112,7 @@ Portfolio-level validation, clustering analysis, weight optimization, deployment
 ---
 
 ### Phase 1 — Signal Extraction Pipeline
+
 - Spatial buffer-based analysis implemented  
 - Sentinel-2 harmonized dataset integrated  
 - Median compositing operational  
@@ -128,7 +131,9 @@ Portfolio-level validation, clustering analysis, weight optimization, deployment
 - Pit-centered spatial anchoring  
 - Persistent exposed footprint quantified  
 
-See: `notes/case-study-carajas.md`
+See:
+
+`notes/case-study-carajas.md`
 
 ---
 
@@ -142,8 +147,8 @@ See: `notes/case-study-carajas.md`
 
 See:
 
-- `notes/case-study-gevra.md`  
-- `experiments/python/comparative_analysis.ipynb`
+`notes/case-study-gevra.md`  
+`experiments/python/comparative_analysis.ipynb`
 
 ---
 
@@ -203,8 +208,8 @@ CERI v3 serves as analytical validation layer.
 
 See:
 
-- `notes/ceri-v3-weight-optimization.md`  
-- `notes/ceri-governance-decision.md`
+`notes/ceri-v3-weight-optimization.md`  
+`notes/ceri-governance-decision.md`
 
 ---
 
@@ -226,8 +231,8 @@ CERI v4 converts validated composite scoring into a stable, production-style ris
 
 See:
 
-- `notes/ceri-v4-deployment.md`  
-- `experiments/python/ceri/ceri_v4_deployment_logic.ipynb`
+`notes/ceri-v4-deployment.md`  
+`experiments/python/ceri/ceri_v4_deployment_logic.ipynb`
 
 ---
 
@@ -252,8 +257,8 @@ Bootstrap validation confirms that the framework behaves as a **stable comparati
 
 See:
 
-- `notes/ceri_v5_bootstrap_stability.md`  
-- `experiments/python/ceri/ceri_v5_bootstrap_stability.ipynb`
+`notes/ceri_v5_bootstrap_stability.md`  
+`experiments/python/ceri/ceri_v5_bootstrap_stability.ipynb`
 
 ---
 
@@ -262,22 +267,25 @@ See:
 CERI v6 evaluates whether engineered exposure features can predict the composite exposure score using supervised machine learning models.
 
 Models implemented:
-- Linear Regression
-- Random Forest Regression
+
+- Linear Regression  
+- Random Forest Regression  
 
 Evaluation approach:
-- Leave-One-Out Cross Validation (LOOCV)
-- RMSE comparison across models
-- feature importance analysis
+
+- Leave-One-Out Cross Validation (LOOCV)  
+- RMSE comparison across models  
+- Feature importance analysis  
 
 Results indicate that the engineered exposure features contain meaningful predictive structure, confirming that the environmental signal extracted from satellite data is compatible with machine learning modeling frameworks.
 
 This stage demonstrates that the exposure scoring system can function as a structured feature layer for downstream predictive models.
 
 See:
-- `notes/ceri_v6_predictive_modeling.md`
-- `experiments/python/ceri/ceri_v6_predictive_modeling.ipynb`
-  
+
+`notes/ceri_v6_predictive_modeling.md`  
+`experiments/python/ceri/ceri_v6_predictive_modeling.ipynb`
+
 ---
 
 # Repository Structure
@@ -307,7 +315,7 @@ Covered assets:
 CERI v2 outputs are versioned and frozen.  
 CERI v3 operates exclusively on the frozen v2 feature layer.  
 CERI v4 applies deterministic tier logic without refitting models.  
-CERI v5 evaluates statistical stability using bootstrap resampling.
+CERI v5 evaluates statistical stability using bootstrap resampling.  
 CERI v6 evaluates predictive structure via supervised machine learning.
 
 ---
@@ -315,19 +323,21 @@ CERI v6 evaluates predictive structure via supervised machine learning.
 # Project Positioning
 
 This repository represents:
-- a structured geospatial modeling system
-- a versioned environmental exposure scoring framework
-- a governance-validated composite model
-- a deployment-ready risk classification layer
-- a statistically validated exposure scoring system
-- a machine-learning compatible feature engineering pipeline
+
+- a structured geospatial modeling system  
+- a versioned environmental exposure scoring framework  
+- a governance-validated composite model  
+- a deployment-ready risk classification layer  
+- a statistically validated exposure scoring system  
+- a machine-learning compatible feature engineering pipeline  
 
 The emphasis is on:
-- statistical rigor
-- geometric interpretability
-- robustness testing
-- governance discipline
-- deterministic deployment logic
-- version-controlled model evolution
+
+- statistical rigor  
+- geometric interpretability  
+- robustness testing  
+- governance discipline  
+- deterministic deployment logic  
+- version-controlled model evolution  
 
 Development proceeds in deliberate, documented stages rather than ad hoc experimentation.
