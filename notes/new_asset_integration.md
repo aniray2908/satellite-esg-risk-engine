@@ -219,3 +219,38 @@ experiments/python/ceri/
 No manual data manipulation is required.
 
 All outputs are reproducible from the satellite data extraction stage.
+
+---
+
+## templates/
+
+Dataset templates used for integrating new assets into the exposure scoring pipeline.
+
+Example:
+assets/data/templates/new_asset_template.csv
+
+The template illustrates the required schema for satellite-derived exposure metrics.
+
+Required columns:
+
+| column | description |
+|------|-------------|
+| year | observation year |
+| mean_ndvi | average NDVI within the analysis buffer |
+| low_ndvi_fraction | fraction of pixels with NDVI < 0.2 |
+| image_count | number of Sentinel-2 images used |
+
+These templates provide a reference structure for exporting new assets from Google Earth Engine before running the scoring pipeline.
+
+---
+
+## Dataset Template
+
+A template dataset is provided for reference:
+assets/data/templates/new_asset_template.csv
+
+
+This file illustrates the expected schema for raw exposure metrics exported from Google Earth Engine.
+
+New assets should follow this structure before being processed through the CERI feature engineering and scoring pipeline.
+
