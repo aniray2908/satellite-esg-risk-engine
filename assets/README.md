@@ -8,6 +8,7 @@ These artifacts include:
 - Satellite-derived datasets
 - Feature-engineered modeling layers
 - Visualization outputs
+- Dataset templates for integrating new assets
 
 All files stored here are **generated outputs** from scripts and notebooks
 located in the `experiments/` directory.
@@ -16,12 +17,13 @@ located in the `experiments/` directory.
 
 # Directory Structure
 
-assets/\
-│\
-├── data/\
-│   ├── raw/\
-│   └── processed/\
-│\
+assets/  
+│  
+├── data/  
+│   ├── raw/  
+│   ├── processed/  
+│   └── templates/  
+│  
 └── plots/
 
 ---
@@ -30,10 +32,11 @@ assets/\
 
 This directory stores datasets produced during the pipeline.
 
-The data layer is divided into two stages:
+The data layer is divided into three stages:
 
-- **raw/** — direct outputs from satellite extraction
-- **processed/** — engineered datasets used in modeling
+- **raw/** — direct outputs from satellite extraction  
+- **processed/** — engineered datasets used in modeling  
+- **templates/** — schema templates for integrating new assets  
 
 ---
 
@@ -90,13 +93,42 @@ Engineered features include:
 
 This feature layer serves as the **frozen baseline dataset** used in:
 
-- CERI v3 — weight optimization
-- CERI v4 — deployment tier classification
-- CERI v5 — bootstrap stability validation
-- CERI v6 — predictive modeling experiments
+- **CERI v3** — weight optimization  
+- **CERI v4** — deployment tier classification  
+- **CERI v5** — bootstrap stability validation  
+- **CERI v6** — predictive modeling experiments  
 
 Once generated, this dataset is **not manually modified** to ensure
 reproducibility across modeling stages.
+
+---
+
+## templates/
+
+Dataset templates used for integrating new assets into the exposure scoring pipeline.
+
+Example:
+
+`new_asset_template.csv`
+
+This template illustrates the required schema for satellite-derived
+exposure metrics exported from Google Earth Engine.
+
+Required columns:
+
+| column | description |
+|------|-------------|
+| year | observation year |
+| mean_ndvi | average NDVI within the analysis buffer |
+| low_ndvi_fraction | fraction of pixels with NDVI < 0.2 |
+| image_count | number of Sentinel-2 images used |
+
+These templates provide a **reference structure for exporting new mining assets**
+before running the exposure scoring pipeline.
+
+They support the integration workflow documented in:
+
+`notes/new_asset_integration.md`
 
 ---
 
@@ -183,6 +215,7 @@ It provides:
 - satellite-derived exposure observations
 - feature-engineered modeling datasets
 - visualization artifacts used for interpretation
+- templates for integrating new assets into the system
 
 These artifacts connect the **geospatial extraction layer**
 with the **statistical modeling and machine learning layers**
