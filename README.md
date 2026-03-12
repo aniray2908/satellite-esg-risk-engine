@@ -1,13 +1,14 @@
 # Satellite-Based Exposure Scoring Framework  
 ### Multi-Spectral Mining Exposure Quantification & Cross-Asset Risk Scoring
+
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
-![Version](https://img.shields.io/badge/version-v6.0%20validated-blue)
+![Version](https://img.shields.io/badge/version-v7.0%20validated-blue)
 ![Data](https://img.shields.io/badge/data-Sentinel--2-lightgrey)
 ![Reproducible](https://img.shields.io/badge/reproducible-yes-success)
 
 ---
 
-## Overview
+# Overview
 
 This repository documents the end-to-end development of a satellite-derived environmental exposure scoring system focused on mining assets.
 
@@ -102,7 +103,7 @@ Portfolio-level validation, clustering analysis, weight optimization, deployment
 
 # Development Progression
 
-### Phase 0 — Conceptual Grounding
+## Phase 0 — Conceptual Grounding
 
 - GIS fundamentals consolidated  
 - Raster vs vector clarified  
@@ -111,7 +112,7 @@ Portfolio-level validation, clustering analysis, weight optimization, deployment
 
 ---
 
-### Phase 1 — Signal Extraction Pipeline
+## Phase 1 — Signal Extraction Pipeline
 
 - Spatial buffer-based analysis implemented  
 - Sentinel-2 harmonized dataset integrated  
@@ -121,7 +122,7 @@ Portfolio-level validation, clustering analysis, weight optimization, deployment
 
 ---
 
-### Phase 2 — Deep Case Study Validation
+## Phase 2 — Deep Case Study Validation
 
 **Carajás Mine (Brazil)**
 
@@ -137,7 +138,7 @@ See:
 
 ---
 
-### Phase 3 — Cross-Site Generalization
+## Phase 3 — Cross-Site Generalization
 
 **Gevra Coal Mine (India)**
 
@@ -152,7 +153,7 @@ See:
 
 ---
 
-### Phase 4 — Portfolio-Level Risk Modeling (CERI v1 → v2)
+## Phase 4 — Portfolio-Level Risk Modeling (CERI v1 → v2)
 
 Two additional assets were integrated:
 
@@ -161,10 +162,11 @@ Two additional assets were integrated:
 
 Portfolio spans four geographically diverse mining operations.
 
-#### CERI v1  
+### CERI v1
+
 Two-asset prototype demonstrating feature design and composite scoring.
 
-#### CERI v2 (Governance Baseline)
+### CERI v2 (Governance Baseline)
 
 Four-asset portfolio model featuring:
 
@@ -184,7 +186,7 @@ CERI v2 remains the official scoring baseline.
 
 ---
 
-### Phase 5 — Weight Optimization & Robustness Validation (CERI v3)
+## Phase 5 — Weight Optimization & Robustness Validation (CERI v3)
 
 CERI v3 introduced data-driven weight optimization:
 
@@ -213,7 +215,7 @@ See:
 
 ---
 
-### Phase 6 — Deployment Tier Logic (CERI v4)
+## Phase 6 — Deployment Tier Logic (CERI v4)
 
 CERI v4 operationalizes the framework into a deterministic classification system.
 
@@ -236,7 +238,7 @@ See:
 
 ---
 
-### Phase 7 — Bootstrap Stability Validation (CERI v5)
+## Phase 7 — Bootstrap Stability Validation (CERI v5)
 
 CERI v5 evaluates score robustness under simulated temporal variation.
 
@@ -262,7 +264,7 @@ See:
 
 ---
 
-### Phase 8 — Predictive Modeling Validation (CERI v6)
+## Phase 8 — Predictive Modeling Validation (CERI v6)
 
 CERI v6 evaluates whether engineered exposure features can predict the composite exposure score using supervised machine learning models.
 
@@ -285,6 +287,70 @@ See:
 
 `notes/ceri_v6_predictive_modeling.md`  
 `experiments/python/ceri/ceri_v6_predictive_modeling.ipynb`
+
+---
+
+# Repository Structure
+
+- `notes/` — Conceptual documentation, case studies, governance, and deployment logic  
+- `experiments/` — GEE extraction scripts and Python modeling notebooks  
+- `assets/` — Generated datasets and visualization outputs  
+- `references/` — Supporting datasets and literature
+  
+---
+
+## Phase 9 — Asset Integration Framework
+
+Phase 9 formalizes the process for integrating new mining assets into the exposure scoring framework.
+
+The objective of this stage is to demonstrate how the system scales beyond the initial four-asset portfolio.
+
+This phase defines a deterministic workflow for adding new assets:
+
+1. Identify mining asset coordinates  
+2. Run satellite extraction via Google Earth Engine  
+3. Export exposure metrics  
+4. Generate exposure features (F1, F2, F3)  
+5. Compute the composite exposure score (CERI_z)  
+6. Assign the deployment risk tier  
+
+This integration pipeline ensures that the framework can be applied consistently across new mining operations without manual adjustments.
+
+Documentation:
+
+`notes/new_asset_integration.md`
+
+This stage demonstrates that the framework functions as a **scalable exposure scoring system rather than a fixed portfolio experiment.**
+
+---
+
+## Phase 10 — Feature Interpretability (CERI v7)
+
+Phase 10 introduces interpretability analysis for the exposure scoring system.
+
+While earlier stages validated score robustness and predictive structure, this stage focuses on **understanding how engineered features influence the final exposure score.**
+
+Analyses implemented:
+
+- Feature correlation analysis  
+- Feature vs score relationship visualization  
+- Sensitivity analysis of exposure signals  
+- Feature contribution interpretation  
+
+The objective is to verify that the scoring system behaves consistently with the conceptual design of the exposure framework.
+
+Key findings:
+
+- **Exposure intensity (F1)** is the dominant driver of the composite score  
+- **Vegetation suppression (F2)** reinforces exposure signals  
+- **Exposure persistence (F3)** acts as a stability adjustment factor  
+
+This stage improves **transparency and interpretability of the exposure scoring system**.
+
+See:
+
+`notes/ceri_v7_feature_interpretability.md`  
+`experiments/python/ceri/ceri_v7_feature_interpretability.ipynb`
 
 ---
 
@@ -316,7 +382,8 @@ CERI v2 outputs are versioned and frozen.
 CERI v3 operates exclusively on the frozen v2 feature layer.  
 CERI v4 applies deterministic tier logic without refitting models.  
 CERI v5 evaluates statistical stability using bootstrap resampling.  
-CERI v6 evaluates predictive structure via supervised machine learning.
+CERI v6 evaluates predictive structure via supervised machine learning.  
+CERI v7 provides interpretability analysis of exposure features.
 
 ---
 
@@ -330,6 +397,7 @@ This repository represents:
 - a deployment-ready risk classification layer  
 - a statistically validated exposure scoring system  
 - a machine-learning compatible feature engineering pipeline  
+- an interpretable exposure scoring architecture  
 
 The emphasis is on:
 
