@@ -58,12 +58,16 @@ G --> H[Model Validation Layers]
 H --> I[Weight Optimization<br>CERI v3]
 H --> J[Deployment Tier Logic<br>CERI v4]
 H --> K[Bootstrap Stability Testing<br>CERI v5]
-H --> M[Predictive Modeling Validation<br>CERI v6]
+H --> L[Predictive Modeling Validation<br>CERI v6]
+H --> M[Feature Interpretability<br>CERI v7]
 
-I --> L[Final Exposure Scoring Framework]
-J --> L
-K --> L
-M --> L
+I --> N[Exposure Scoring Framework]
+J --> N
+K --> N
+L --> N
+M --> N
+
+N --> O[New Asset Integration Framework<br>Phase 9]
 ```
 ---
 
