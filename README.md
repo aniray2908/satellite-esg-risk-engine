@@ -69,8 +69,6 @@ M --> N
 
 N --> O[New Asset Integration Framework<br>Phase 9]
 ```
----
-
 ### Pipeline Interpretation
 
 The pipeline integrates multiple analytical layers that transform raw satellite observations into a structured environmental exposure scoring system.
@@ -231,10 +229,6 @@ Includes:
 - Confidence band labeling (High / Medium / Low)  
 - Deployment-ready output table  
 
-No clustering dependency at deployment stage.
-
-CERI v4 converts validated composite scoring into a stable, production-style risk classification layer.
-
 See:
 
 `notes/ceri-v4-deployment.md`  
@@ -285,8 +279,6 @@ Evaluation approach:
 
 Results indicate that the engineered exposure features contain meaningful predictive structure, confirming that the environmental signal extracted from satellite data is compatible with machine learning modeling frameworks.
 
-This stage demonstrates that the exposure scoring system can function as a structured feature layer for downstream predictive models.
-
 See:
 
 `notes/ceri_v6_predictive_modeling.md`  
@@ -294,22 +286,11 @@ See:
 
 ---
 
-# Repository Structure
-
-- `notes/` — Conceptual documentation, case studies, governance, and deployment logic  
-- `experiments/` — GEE extraction scripts and Python modeling notebooks  
-- `assets/` — Generated datasets and visualization outputs  
-- `references/` — Supporting datasets and literature
-  
----
-
 ## Phase 9 — Asset Integration Framework
 
 Phase 9 formalizes the process for integrating new mining assets into the exposure scoring framework.
 
-The objective of this stage is to demonstrate how the system scales beyond the initial four-asset portfolio.
-
-This phase defines a deterministic workflow for adding new assets:
+Workflow:
 
 1. Identify mining asset coordinates  
 2. Run satellite extraction via Google Earth Engine  
@@ -317,8 +298,6 @@ This phase defines a deterministic workflow for adding new assets:
 4. Generate exposure features (F1, F2, F3)  
 5. Compute the composite exposure score (CERI_z)  
 6. Assign the deployment risk tier  
-
-This integration pipeline ensures that the framework can be applied consistently across new mining operations without manual adjustments.
 
 Documentation:
 
@@ -332,8 +311,6 @@ This stage demonstrates that the framework functions as a **scalable exposure sc
 
 Phase 10 introduces interpretability analysis for the exposure scoring system.
 
-While earlier stages validated score robustness and predictive structure, this stage focuses on **understanding how engineered features influence the final exposure score.**
-
 Analyses implemented:
 
 - Feature correlation analysis  
@@ -341,15 +318,11 @@ Analyses implemented:
 - Sensitivity analysis of exposure signals  
 - Feature contribution interpretation  
 
-The objective is to verify that the scoring system behaves consistently with the conceptual design of the exposure framework.
-
 Key findings:
 
 - **Exposure intensity (F1)** is the dominant driver of the composite score  
 - **Vegetation suppression (F2)** reinforces exposure signals  
 - **Exposure persistence (F3)** acts as a stability adjustment factor  
-
-This stage improves **transparency and interpretability of the exposure scoring system**.
 
 See:
 
@@ -358,10 +331,40 @@ See:
 
 ---
 
+## Phase 11 — Scalability Simulation (CERI v8)
+
+Phase 11 evaluates how the exposure scoring framework behaves when applied to a larger portfolio of mining assets.
+
+Since real-world labeled data for additional assets may not always be available, this stage introduces a **synthetic portfolio simulation approach**.
+
+The simulation generates artificial mining assets using the empirical statistical structure of the observed feature space.
+
+Analysis includes:
+
+- Multivariate feature simulation using observed covariance  
+- Synthetic asset generation  
+- Composite score computation across simulated assets  
+- Score distribution analysis  
+- Tier segmentation behavior evaluation  
+
+The objective of this phase is to demonstrate that the exposure scoring framework:
+
+- behaves consistently under portfolio expansion  
+- maintains interpretable score distributions  
+- remains stable when applied to larger mining portfolios  
+
+This stage establishes that the framework can **scale beyond the initial four-asset prototype**.
+
+See:
+
+`experiments/python/ceri/ceri_v8_scalability_simulation.ipynb`
+
+---
+
 # Repository Structure
 
-- `notes/` — Conceptual documentation, case studies, governance, and deployment logic  
-- `experiments/` — GEE extraction scripts and Python modeling notebooks  
+- `notes/` — Conceptual documentation, case studies, governance, and methodological explanations  
+- `experiments/` — Google Earth Engine extraction scripts and Python modeling notebooks  
 - `assets/` — Generated datasets and visualization outputs  
 - `references/` — Supporting datasets and literature  
 
@@ -382,12 +385,9 @@ Covered assets:
 - Bingham Canyon (USA)  
 - Grasberg (Indonesia)
 
-CERI v2 outputs are versioned and frozen.  
-CERI v3 operates exclusively on the frozen v2 feature layer.  
-CERI v4 applies deterministic tier logic without refitting models.  
-CERI v5 evaluates statistical stability using bootstrap resampling.  
-CERI v6 evaluates predictive structure via supervised machine learning.  
-CERI v7 provides interpretability analysis of exposure features.
+Version progression:
+
+CERI v2 → CERI v3 → CERI v4 → CERI v5 → CERI v6 → CERI v7 → CERI v8
 
 ---
 
@@ -402,6 +402,7 @@ This repository represents:
 - a statistically validated exposure scoring system  
 - a machine-learning compatible feature engineering pipeline  
 - an interpretable exposure scoring architecture  
+- a scalable exposure scoring framework for mining assets  
 
 The emphasis is on:
 
