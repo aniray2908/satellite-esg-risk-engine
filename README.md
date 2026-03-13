@@ -42,32 +42,54 @@ The framework transforms raw satellite imagery into a structured exposure scorin
 ```mermaid
 flowchart TD
 
-A[Sentinel-2 Satellite Imagery] --> B[Google Earth Engine Processing]
+subgraph Data_Extraction
+A[Sentinel-2 Satellite Imagery]
+B[Google Earth Engine Processing]
+C[NDVI Computation]
+D[Exposure Metrics Extraction]
+E[Raw Data Export<br>assets/data/raw]
 
-B --> C[NDVI Computation]
-C --> D[Exposure Metrics Extraction]
+A --> B --> C --> D --> E
+end
 
-D --> E[Raw Data Export<br>assets/data/raw]
+subgraph Feature_Engineering
+F[Feature Engineering<br>F1 Exposure Intensity<br>F2 Vegetation Suppression<br>F3 Exposure Persistence]
+G[CERI Composite Score<br>Z-Score Normalization]
 
-E --> F[Feature Engineering<br>F1 Exposure Intensity<br>F2 Vegetation Suppression<br>F3 Exposure Persistence]
+E --> F --> G
+end
 
-F --> G[CERI Composite Score<br>Z-Score Normalization]
+subgraph Model_Validation
+H[Validation Layers]
 
-G --> H[Model Validation Layers]
+I[Weight Optimization<br>CERI v3]
+J[Deployment Tier Logic<br>CERI v4]
+K[Bootstrap Stability Testing<br>CERI v5]
+L[Predictive Modeling Validation<br>CERI v6]
+M[Feature Interpretability<br>CERI v7]
 
-H --> I[Weight Optimization<br>CERI v3]
-H --> J[Deployment Tier Logic<br>CERI v4]
-H --> K[Bootstrap Stability Testing<br>CERI v5]
-H --> L[Predictive Modeling Validation<br>CERI v6]
-H --> M[Feature Interpretability<br>CERI v7]
+G --> H
+H --> I
+H --> J
+H --> K
+H --> L
+H --> M
+end
 
-I --> N[Exposure Scoring Framework]
+subgraph Framework_Extension
+N[Validated Exposure Scoring Framework]
+O[New Asset Integration Framework<br>Phase 9]
+P[Framework Interpretability Analysis<br>Phase 10]
+Q[Scalability Simulation<br>CERI v8<br>Phase 11]
+
+I --> N
 J --> N
 K --> N
 L --> N
 M --> N
 
-N --> O[New Asset Integration Framework<br>Phase 9]
+N --> O --> P --> Q
+end
 ```
 ### Pipeline Interpretation
 
