@@ -11,6 +11,8 @@ This directory contains reproducible analytical scripts and notebooks used durin
 - Deployment tier logic implementation  
 - Model robustness validation  
 - Predictive modeling validation  
+- Feature interpretability analysis  
+- Scalability simulation  
 
 ---
 
@@ -33,14 +35,14 @@ using Sentinel-2 Surface Reflectance data.
 
 Each GEE script:
 
-- Uses a 1 km pit-centered buffer  
-- Applies full-year median compositing (2019–2023)  
+- Uses a **1 km pit-centered buffer**
+- Applies **full-year median compositing (2019–2023)**
 - Computes:
   - Mean NDVI  
-  - Low NDVI Fraction (NDVI < 0.2)  
+  - Low NDVI Fraction (NDVI < 0.2)
 - Exports reproducible CSV tables  
 
-These scripts form the deterministic satellite extraction layer
+These scripts form the **deterministic satellite extraction layer**
 that feeds all downstream modeling.
 
 ---
@@ -80,7 +82,7 @@ Outputs are stored in:
 Performs cross-site visualization and comparative interpretation
 of exposure metrics across assets.
 
-This notebook establishes cross-asset structural consistency
+This notebook establishes **cross-asset structural consistency**
 prior to portfolio-level modeling.
 
 ---
@@ -105,7 +107,7 @@ Includes:
 - Weighted composite scoring  
 - Illustrative clustering  
 
-Represents initial composite framework validation.
+Represents **initial composite framework validation**.
 
 ---
 
@@ -129,11 +131,11 @@ Includes:
 - Weight sensitivity analysis  
 - Feature space geometry analysis  
 
-CERI v2 is treated as the governance-stable baseline model.
+CERI v2 is treated as the **governance-stable baseline model**.
 
 Final feature layer exported to:
 
-`assets/data/ceri_v2_feature_layer.csv`
+`assets/data/processed/ceri_v2_feature_layer.csv`
 
 ---
 
@@ -152,9 +154,9 @@ Builds on the frozen CERI v2 feature layer and:
 
 CERI v3 functions as:
 
-- Analytical validation layer  
-- Robustness demonstration  
-- Optimization experiment  
+- analytical validation layer  
+- robustness demonstration  
+- optimization experiment  
 
 CERI v2 remains the official scoring baseline.
 
@@ -187,7 +189,7 @@ to temporal variation in the underlying data.
 The analysis:
 
 - Resamples yearly observations using bootstrap simulation  
-- Generates score distributions across 1000 iterations  
+- Generates score distributions across **1000 iterations**  
 - Evaluates score variance and ranking stability  
 - Confirms tier classification robustness  
 
@@ -206,14 +208,14 @@ reconstruct the composite exposure score.
 
 Models evaluated include:
 
-- Linear Regression (baseline reconstruction model)
-- Random Forest Regression (nonlinear model)
+- Linear Regression  
+- Random Forest Regression  
 
 Evaluation methodology:
 
-- Leave-One-Out Cross Validation (LOOCV) due to small portfolio size
-- RMSE comparison across models
-- Feature importance analysis from Random Forest
+- Leave-One-Out Cross Validation (LOOCV) due to small portfolio size  
+- RMSE comparison across models  
+- Feature importance analysis from Random Forest  
 
 The goal of this stage is not to replace the composite scoring system,
 but to demonstrate that the engineered exposure features behave
@@ -221,6 +223,44 @@ consistently within a supervised learning framework.
 
 This validates that the environmental signal extracted from satellite
 data can function as a **machine learning–compatible feature layer**.
+
+---
+
+### `ceri_v7_feature_interpretability.ipynb`
+
+Feature interpretability analysis of the exposure scoring framework.
+
+This notebook examines how individual exposure signals influence the
+composite CERI score.
+
+Analyses include:
+
+- Feature correlation analysis  
+- Feature vs score relationships  
+- Sensitivity curves  
+- Feature contribution visualization  
+
+This stage improves **transparency and interpretability** of the scoring system.
+
+---
+
+### `ceri_v8_scalability_simulation.ipynb`
+
+Scalability simulation evaluating how the exposure scoring framework
+behaves when applied to a larger mining asset population.
+
+Synthetic assets are generated using a **multivariate distribution**
+that preserves the observed feature covariance structure.
+
+The analysis:
+
+- simulates a portfolio of synthetic mining assets  
+- computes composite exposure scores  
+- evaluates score distribution  
+- examines tier segmentation behavior  
+
+This stage demonstrates that the exposure scoring system **scales
+beyond the initial four-asset prototype**.
 
 ---
 
@@ -234,5 +274,8 @@ All metrics, scores, tiers, and plots are fully reproducible by:
 
 The modeling layer consumes exported CSV files directly.
 
-No manual adjustments are applied to exported data.  
-Version progression (v2 → v3 → v4 → v5 → v6) operates strictly on frozen upstream outputs.
+No manual adjustments are applied to exported data.
+
+Version progression operates strictly on frozen upstream outputs:
+
+CERI v2 → CERI v3 → CERI v4 → CERI v5 → CERI v6 → CERI v7 → CERI v8
