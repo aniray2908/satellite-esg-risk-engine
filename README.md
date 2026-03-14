@@ -1,7 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-# Satellite-Based Exposure Scoring Framework  
-### Multi-Spectral Mining Exposure Quantification & Cross-Asset Risk Scoring
+# Satellite Environmental Risk Engine  
+### Mining Exposure Scoring using Sentinel-2 Satellite Data
 
 ![Status](https://img.shields.io/badge/status-complete-brightgreen)
 ![Version](https://img.shields.io/badge/version-v10.0%20validated-blue)
