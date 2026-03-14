@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 # Satellite-Based Exposure Scoring Framework  
 ### Multi-Spectral Mining Exposure Quantification & Cross-Asset Risk Scoring
 
