@@ -13,6 +13,8 @@ This directory contains reproducible analytical scripts and notebooks used durin
 - Predictive modeling validation  
 - Feature interpretability analysis  
 - Scalability simulation  
+- External validation  
+- Production scoring pipeline development  
 
 ---
 
@@ -87,11 +89,11 @@ prior to portfolio-level modeling.
 
 ---
 
-## Risk Modeling — CERI Framework
+# Risk Modeling — CERI Framework
 
 Located in:
 
-experiments/python/ceri/
+`experiments/python/ceri/`
 
 ---
 
@@ -217,10 +219,6 @@ Evaluation methodology:
 - RMSE comparison across models  
 - Feature importance analysis from Random Forest  
 
-The goal of this stage is not to replace the composite scoring system,
-but to demonstrate that the engineered exposure features behave
-consistently within a supervised learning framework.
-
 This validates that the environmental signal extracted from satellite
 data can function as a **machine learning–compatible feature layer**.
 
@@ -264,7 +262,48 @@ beyond the initial four-asset prototype**.
 
 ---
 
-## Reproducibility
+### `ceri_v9_external_validation.ipynb`
+
+External validation analysis comparing CERI exposure scores with
+independent environmental disturbance indicators.
+
+This notebook evaluates whether assets with higher exposure scores
+also exhibit stronger disturbance signals in external proxy datasets.
+
+The analysis includes:
+
+- external disturbance signal generation  
+- correlation analysis with CERI scores  
+- cross-asset comparison  
+- validation visualization  
+
+This stage assesses the **external validity of the exposure scoring framework**
+beyond internal statistical validation.
+
+---
+
+### `ceri_v10_scoring_pipeline.ipynb`
+
+Production-style scoring pipeline demonstration.
+
+This notebook illustrates how the CERI framework can operate as a
+deterministic environmental exposure scoring engine capable of
+evaluating new mining assets.
+
+The pipeline includes:
+
+- feature ingestion  
+- composite score computation  
+- deterministic risk tier assignment  
+- structured scoring output  
+
+This stage demonstrates how the framework could function as a
+**production environmental exposure scoring system** for evaluating
+new industrial assets.
+
+---
+
+# Reproducibility
 
 All metrics, scores, tiers, and plots are fully reproducible by:
 
@@ -275,7 +314,3 @@ All metrics, scores, tiers, and plots are fully reproducible by:
 The modeling layer consumes exported CSV files directly.
 
 No manual adjustments are applied to exported data.
-
-Version progression operates strictly on frozen upstream outputs:
-
-CERI v2 → CERI v3 → CERI v4 → CERI v5 → CERI v6 → CERI v7 → CERI v8
