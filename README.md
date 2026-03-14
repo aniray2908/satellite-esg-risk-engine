@@ -1,10 +1,11 @@
 # Satellite-Based Exposure Scoring Framework  
 ### Multi-Spectral Mining Exposure Quantification & Cross-Asset Risk Scoring
 
-![Status](https://img.shields.io/badge/status-active-brightgreen)
+![Status](https://img.shields.io/badge/status-complete-brightgreen)
 ![Version](https://img.shields.io/badge/version-v10.0%20validated-blue)
 ![Data](https://img.shields.io/badge/data-Sentinel--2-lightgrey)
 ![Reproducible](https://img.shields.io/badge/reproducible-yes-success)
+![Project Stage](https://img.shields.io/badge/stage-production--ready-blue)
 
 ---
 
