@@ -2,7 +2,7 @@
 ### Multi-Spectral Mining Exposure Quantification & Cross-Asset Risk Scoring
 
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
-![Version](https://img.shields.io/badge/version-v7.0%20validated-blue)
+![Version](https://img.shields.io/badge/version-v10.0%20validated-blue)
 ![Data](https://img.shields.io/badge/data-Sentinel--2-lightgrey)
 ![Reproducible](https://img.shields.io/badge/reproducible-yes-success)
 
@@ -22,8 +22,10 @@ The framework:
 - Converts composite scores into deterministic deployment-ready risk tiers  
 - Validates score robustness through statistical resampling  
 - Evaluates feature predictability using supervised machine learning  
+- Provides interpretable environmental exposure signals  
+- Demonstrates scalable application across mining portfolios  
 
-The project has evolved from signal extraction to portfolio-level modeling, optimization, governance validation, deployment-tier logic, statistical robustness testing, and predictive modeling validation.
+The project evolves from **satellite signal extraction → exposure scoring → statistical validation → scalable risk analytics**.
 
 This work sits at the intersection of:
 
@@ -59,8 +61,8 @@ G[CERI Composite Score<br>Z-Score Normalization]
 E --> F --> G
 end
 
-subgraph Model_Validation
-H[Validation Layers]
+subgraph Validation_Layers
+H[Model Validation Layers]
 
 I[Weight Optimization<br>CERI v3]
 J[Deployment Tier Logic<br>CERI v4]
@@ -78,9 +80,12 @@ end
 
 subgraph Framework_Extension
 N[Validated Exposure Scoring Framework]
-O[New Asset Integration Framework<br>Phase 9]
+
+O[Asset Integration Framework<br>Phase 9]
 P[Framework Interpretability Analysis<br>Phase 10]
 Q[Scalability Simulation<br>CERI v8<br>Phase 11]
+R[External Validation<br>CERI v9<br>Phase 12]
+S[Production Scoring Pipeline<br>CERI v10<br>Phase 13]
 
 I --> N
 J --> N
@@ -88,9 +93,10 @@ K --> N
 L --> N
 M --> N
 
-N --> O --> P --> Q
+N --> O --> P --> Q --> R --> S
 end
 ```
+
 ### Pipeline Interpretation
 
 The pipeline integrates multiple analytical layers that transform raw satellite observations into a structured environmental exposure scoring system.
@@ -104,6 +110,9 @@ These layers include:
 - **Optimization and governance validation**
 - **Deployment-ready tier classification**
 - **Statistical robustness evaluation**
+- **Machine learning compatibility validation**
+- **Interpretability analysis**
+- **Framework scalability testing**
 
 Each stage is implemented as a reproducible computational step within the repository, allowing the full scoring framework to be regenerated from raw satellite data.
 
@@ -121,7 +130,7 @@ Satellite data enables:
 
 This project evaluates whether satellite-derived vegetation exposure metrics can serve as structured, comparable proxies for industrial environmental risk.
 
-Portfolio-level validation, clustering analysis, weight optimization, deployment-tier logic, and bootstrap stability testing have been implemented to assess structural robustness and operational readiness.
+The framework aims to demonstrate how **satellite analytics can support systematic environmental risk screening for mining assets.**
 
 ---
 
@@ -197,10 +206,9 @@ Four-asset portfolio model featuring:
 - Standardized feature engineering (F1, F2, F3)  
 - Z-score normalization  
 - Composite risk scoring (CERI_z)  
-- Weight sensitivity testing  
-- Geometric feature space analysis  
-- KMeans clustering (k=2, k=3)  
+- KMeans clustering  
 - Silhouette-based validation  
+- Feature space geometry analysis  
 
 Final feature layer exported to:
 
@@ -212,25 +220,15 @@ CERI v2 remains the official scoring baseline.
 
 ## Phase 5 — Weight Optimization & Robustness Validation (CERI v3)
 
-CERI v3 introduced data-driven weight optimization:
+Introduced data-driven weight optimization using clustering quality metrics.
+
+Key analyses:
 
 - Structured weight grid search  
-- Silhouette maximization (k = 3)  
-- Ranking shift quantification  
-- Spearman & Kendall stability analysis  
-- Governance decision framework  
+- Silhouette maximization  
+- Ranking stability evaluation  
 
-Key findings:
-
-- Optimization improves geometric separation  
-- Extreme-tier assets remain stable  
-- Moderate-tier ordering shifts under heavy stability weighting  
-- Ranking stability remains strong (Spearman ≈ 0.80)
-
-Governance Decision:
-
-CERI v2 retained as baseline.  
-CERI v3 serves as analytical validation layer.
+Governance decision retained **CERI v2 as the baseline configuration**.
 
 See:
 
@@ -241,15 +239,13 @@ See:
 
 ## Phase 6 — Deployment Tier Logic (CERI v4)
 
-CERI v4 operationalizes the framework into a deterministic classification system.
+Operationalized deterministic risk classification.
 
 Includes:
 
-- Z-score threshold-based tier assignment  
-- High / Moderate / Low risk segmentation  
-- Margin-based confidence scoring  
-- Confidence band labeling (High / Medium / Low)  
-- Deployment-ready output table  
+- Z-score thresholds  
+- Tier segmentation (High / Moderate / Low Risk)  
+- Confidence margin scoring  
 
 See:
 
@@ -260,22 +256,15 @@ See:
 
 ## Phase 7 — Bootstrap Stability Validation (CERI v5)
 
-CERI v5 evaluates score robustness under simulated temporal variation.
-
-Includes:
-
-- 1000 bootstrap simulations  
-- Score distribution analysis  
-- Ranking robustness evaluation  
-- Tier classification stability assessment  
+Evaluated score robustness using **1000 bootstrap simulations**.
 
 Key findings:
 
 - Exposure scores remain tightly distributed  
-- Cross-asset ranking remains structurally stable  
+- Asset rankings remain structurally stable  
 - Tier assignments remain consistent under resampling  
 
-Bootstrap validation confirms that the framework behaves as a **stable comparative exposure signal rather than a fragile point estimate.**
+This confirms that the scoring framework behaves as a **stable comparative exposure signal rather than a fragile point estimate**.
 
 See:
 
@@ -286,20 +275,20 @@ See:
 
 ## Phase 8 — Predictive Modeling Validation (CERI v6)
 
-CERI v6 evaluates whether engineered exposure features can predict the composite exposure score using supervised machine learning models.
+Evaluated whether engineered exposure features can reconstruct the composite exposure score.
 
-Models implemented:
+Models tested:
 
 - Linear Regression  
 - Random Forest Regression  
 
-Evaluation approach:
+Evaluation method:
 
 - Leave-One-Out Cross Validation (LOOCV)  
 - RMSE comparison across models  
 - Feature importance analysis  
 
-Results indicate that the engineered exposure features contain meaningful predictive structure, confirming that the environmental signal extracted from satellite data is compatible with machine learning modeling frameworks.
+This stage demonstrates that the engineered exposure features contain meaningful predictive structure.
 
 See:
 
@@ -310,41 +299,41 @@ See:
 
 ## Phase 9 — Asset Integration Framework
 
-Phase 9 formalizes the process for integrating new mining assets into the exposure scoring framework.
+Phase 9 formalizes the workflow required to integrate additional mining assets into the exposure scoring framework.
 
-Workflow:
+The deterministic workflow includes:
 
 1. Identify mining asset coordinates  
-2. Run satellite extraction via Google Earth Engine  
-3. Export exposure metrics  
-4. Generate exposure features (F1, F2, F3)  
+2. Execute satellite extraction via Google Earth Engine  
+3. Export yearly vegetation exposure metrics  
+4. Generate engineered exposure features (F1, F2, F3)  
 5. Compute the composite exposure score (CERI_z)  
 6. Assign the deployment risk tier  
 
-Documentation:
+This stage demonstrates that the system functions as a **scalable exposure scoring pipeline rather than a fixed portfolio experiment**.
+
+See:
 
 `notes/new_asset_integration.md`
-
-This stage demonstrates that the framework functions as a **scalable exposure scoring system rather than a fixed portfolio experiment.**
 
 ---
 
 ## Phase 10 — Feature Interpretability (CERI v7)
 
-Phase 10 introduces interpretability analysis for the exposure scoring system.
+Introduced interpretability analysis to explain how engineered exposure signals influence the composite risk score.
 
-Analyses implemented:
+Analyses include:
 
 - Feature correlation analysis  
 - Feature vs score relationship visualization  
-- Sensitivity analysis of exposure signals  
-- Feature contribution interpretation  
+- Sensitivity curves  
+- Feature contribution analysis  
 
-Key findings:
+Key insight:
 
 - **Exposure intensity (F1)** is the dominant driver of the composite score  
-- **Vegetation suppression (F2)** reinforces exposure signals  
-- **Exposure persistence (F3)** acts as a stability adjustment factor  
+- Vegetation suppression reinforces exposure signals  
+- Persistence captures long-term environmental disturbance stability  
 
 See:
 
@@ -355,27 +344,19 @@ See:
 
 ## Phase 11 — Scalability Simulation (CERI v8)
 
-Phase 11 evaluates how the exposure scoring framework behaves when applied to a larger portfolio of mining assets.
+Evaluates how the scoring framework behaves when applied to a larger mining asset population.
 
-Since real-world labeled data for additional assets may not always be available, this stage introduces a **synthetic portfolio simulation approach**.
-
-The simulation generates artificial mining assets using the empirical statistical structure of the observed feature space.
+Synthetic mining assets are generated using the empirical statistical structure of the observed feature space.
 
 Analysis includes:
 
-- Multivariate feature simulation using observed covariance  
+- Multivariate feature simulation  
 - Synthetic asset generation  
-- Composite score computation across simulated assets  
+- Composite score computation  
 - Score distribution analysis  
-- Tier segmentation behavior evaluation  
+- Tier segmentation evaluation  
 
-The objective of this phase is to demonstrate that the exposure scoring framework:
-
-- behaves consistently under portfolio expansion  
-- maintains interpretable score distributions  
-- remains stable when applied to larger mining portfolios  
-
-This stage establishes that the framework can **scale beyond the initial four-asset prototype**.
+This stage demonstrates that the framework **scales beyond the initial four-asset prototype**.
 
 See:
 
@@ -383,10 +364,41 @@ See:
 
 ---
 
+## Phase 12 — External Validation (CERI v9)
+
+Introduces external validation using independent disturbance indicators.
+
+The objective is to verify whether higher exposure scores correspond to observable environmental disturbance signals.
+
+Analyses include:
+
+- Proxy disturbance signal generation  
+- Cross-asset correlation analysis  
+- External validation visualization  
+
+This stage evaluates the **external validity of the exposure scoring framework**.
+
+---
+
+## Phase 13 — Production Scoring Pipeline (CERI v10)
+
+Introduces a deterministic scoring engine capable of evaluating new mining assets.
+
+The scoring pipeline performs:
+
+- Feature ingestion  
+- Composite score computation  
+- Deterministic tier assignment  
+- Structured scoring output generation  
+
+This stage demonstrates how the framework can operate as a **production-style environmental exposure scoring system**.
+
+---
+
 # Repository Structure
 
-- `notes/` — Conceptual documentation, case studies, governance, and methodological explanations  
-- `experiments/` — Google Earth Engine extraction scripts and Python modeling notebooks  
+- `notes/` — Conceptual documentation, case studies, governance explanations  
+- `experiments/` — Google Earth Engine scripts and modeling notebooks  
 - `assets/` — Generated datasets and visualization outputs  
 - `references/` — Supporting datasets and literature  
 
@@ -408,8 +420,7 @@ Covered assets:
 - Grasberg (Indonesia)
 
 Version progression:
-
-CERI v2 → CERI v3 → CERI v4 → CERI v5 → CERI v6 → CERI v7 → CERI v8
+CERI V2-> V3-> V4-> V5-> V6-> V7-> V8-> V9-> V10
 
 ---
 
@@ -424,15 +435,14 @@ This repository represents:
 - a statistically validated exposure scoring system  
 - a machine-learning compatible feature engineering pipeline  
 - an interpretable exposure scoring architecture  
-- a scalable exposure scoring framework for mining assets  
+- a scalable satellite-based environmental risk analytics framework  
 
 The emphasis is on:
 
 - statistical rigor  
-- geometric interpretability  
+- interpretability  
 - robustness testing  
 - governance discipline  
-- deterministic deployment logic  
-- version-controlled model evolution  
+- reproducible modeling workflows  
 
-Development proceeds in deliberate, documented stages rather than ad hoc experimentation.
+Development proceeds in **deliberate, documented stages rather than ad hoc experimentation.**
